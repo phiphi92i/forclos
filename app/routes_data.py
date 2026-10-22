@@ -1,6 +1,8 @@
 """Data routes: ingestion, live feed, dashboard, demo reset, benchmark."""
 from __future__ import annotations
 
+import os
+
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
@@ -104,8 +106,10 @@ def data_layer() -> dict:
     """What the agent's data is, where it lives in Postgres, and how fresh it is."""
     q1 = db.query_one
     return {
-        "database": q1("select split_part(version(), ' on ', 1) as engine, "
-                       "pg_size_pretty(pg_database_size(current_database())) as size"),
+        "database": {**q1("select split_part(version(), ' on ', 1) as engine, "
+                          "pg_size_pretty(pg_database_size(current_database())) as size"),
+                     "provider": "Aiven for PostgreSQL" if "aivencloud.com" in os.getenv("DATABASE_URL", "")
+                                 else "PostgreSQL (local development)"},
         "bodacc": q1("""select count(*) as rows, max(date_parution) as latest_publication,
                           count(*) filter (where event_kind = any(%s)) as procedure_notices,
                           count(distinct siren) as companies from bodacc_notices""", (list(CASE_KINDS),)),
@@ -117,10 +121,14 @@ def data_layer() -> dict:
                            where c.dataset = 'demo') as invoices,
                           (select count(*) from documents d join customers c on c.id = d.customer_id
                            where c.dataset = 'demo') as documents"""),
-        "memory": q1("""select (select count(*) from cases) as cases, (select count(*) from case_events) as case_events,
-                          (select count(*) from invoice_classifications) as decisions,
-                          (select count(*) from invoice_classifications where decided_by = 'AGENT') as agent_decisions,
-                          (select count(*) from actions) as actions"""),
+        "memory": q1("""with k as (select c.id from cases c join customers cu on cu.id = c.customer_id
+                                   where cu.dataset = 'demo')
+                        select (select count(*) from k) as cases,
+                          (select count(*) from case_events where case_id in (select id from k)) as case_events,
+                          (select count(*) from invoice_classifications where case_id in (select id from k)) as decisions,
+                          (select count(*) from invoice_classifications where case_id in (select id from k)
+                             and decided_by = 'AGENT') as agent_decisions,
+                          (select count(*) from actions where case_id in (select id from k)) as actions"""),
         "agent": q1("""select count(*) as runs, coalesce(sum(input_tokens + output_tokens), 0) as tokens,
                          (select count(*) from agent_steps) as steps,
                          percentile_cont(0.5) within group (order by extract(epoch from finished_at - started_at))

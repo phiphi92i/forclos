@@ -522,7 +522,7 @@ async function renderData() {
   const box = (eyebrow, title, lines) => `<div class="flow-box"><p class="eyebrow">${eyebrow}</p><h3>${title}</h3>
     <div class="flow-lines">${lines.map((l) => `<div>${l}</div>`).join("")}</div></div>`;
   $("view").innerHTML = `
-    <div class="page-heading"><p class="eyebrow"><span class="dot"></span>Aiven for PostgreSQL · ${esc(d.database.engine)} · ${esc(d.database.size)}</p>
+    <div class="page-heading"><p class="eyebrow"><span class="dot"></span>${esc(d.database.provider)} · ${esc(d.database.engine.replace(/ \(.*\)/, ""))} · ${esc(d.database.size)}</p>
       <h1>Data layer</h1>
       <p>Everything the agent knows lives in one Postgres database: public notices, register records, your ledger, and the
         cases it builds up over time. Rules read it; the agent adds evidence to it; nothing is decided from a prompt alone.</p></div>
