@@ -101,6 +101,8 @@ Dockerfile, with the database injected through a service integration (no passwor
 
 ## The slide
 
+Slide: https://claude.ai/artifact/GjF51Jfgopp5M2ZjixvuB9 (present full screen; export to PDF or PPTX from its menu).
+
 **Who:** French B2B SMEs selling on credit with no credit manager: food-service wholesalers, building
 suppliers, B2B services. One missed claim can be a month of margin.
 **Why now:** record insolvencies (about 68,600 in 2025, Banque de France). BODACC and the company register
