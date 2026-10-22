@@ -116,6 +116,7 @@ main#view { min-height: calc(100svh - 64px - 110px); }
 .section-title h2 { font-size: var(--text-xl); }
 .empty { padding: 26px 22px; color: var(--muted); }
 .small { font-size: 0.85rem; margin-top: 24px; }
+.button.small { margin-top: 0; }  /* the text utility above must not shift small buttons */
 
 /* ---------------------------------------------------------------- controls */
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: var(--control-height-md); padding: 0 1.25rem;
