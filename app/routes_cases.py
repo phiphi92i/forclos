@@ -69,7 +69,9 @@ def get_case(case_id: int) -> dict:
            from invoice_classifications where case_id = %s order by id""", (case_id,))
     for inv in invoices:
         inv["history"] = [h for h in history if h["invoice_id"] == inv["id"]]
-        prev = inv["history"][-2] if len(inv["history"]) > 1 else None
+        # An agent decision is shown against the rule baseline (invoice date), not against an earlier agent run.
+        rule = next((h for h in reversed(inv["history"]) if h["decided_by"] == "RULE"), None)
+        prev = rule if inv["decided_by"] == "AGENT" else (inv["history"][-2] if len(inv["history"]) > 1 else None)
         inv["previous"] = prev
         inv["changed"] = bool(prev and prev["category"] != inv["category"])
     actions = db.query("select * from actions where case_id = %s order by id", (case_id,))

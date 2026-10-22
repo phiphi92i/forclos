@@ -12,12 +12,12 @@ from app.ingest import upsert_records
 SEED = Path(__file__).resolve().parents[1] / "data" / "demo_seed.json"
 
 
-def _insert_customer(conn, c: dict) -> int:
+def insert_customer(conn, c: dict, dataset: str = "demo", bench_case_id: str | None = None) -> int:
     cid = conn.execute(
-        """insert into customers (crm_name, crm_siren, address, postal_code, city, payment_terms, dataset)
-           values (%s, %s, %s, %s, %s, %s, 'demo') returning id""",
+        """insert into customers (crm_name, crm_siren, address, postal_code, city, payment_terms, dataset,
+           bench_case_id) values (%s, %s, %s, %s, %s, %s, %s, %s) returning id""",
         (c["crm_name"], c.get("crm_siren"), c.get("address"), c.get("postal_code"), c.get("city"),
-         c.get("payment_terms", "NET30"))).fetchone()["id"]
+         c.get("payment_terms", "NET30"), dataset, bench_case_id)).fetchone()["id"]
     contracts = {}
     for k in c.get("contracts", []):
         contracts[k["key"]] = conn.execute(
@@ -50,6 +50,6 @@ def load_seed(path: Path = SEED) -> dict:
             conn.execute("""insert into company_cache (cache_key, payload) values (%s, %s)
                             on conflict (cache_key) do update set payload = excluded.payload""",
                          (key, Jsonb(payload)))
-        ids = [_insert_customer(conn, c) for c in seed["customers"]]
+        ids = [insert_customer(conn, c) for c in seed["customers"]]
         new_cases = match_customers(conn)
     return {"customers": len(ids), "notices": len(seed.get("notices", [])), "cases": new_cases}
