@@ -1,0 +1,29 @@
+[
+  {
+    "id": "A202601900123",
+    "publicationavis": "A",
+    "dateparution": "2026-09-01",
+    "familleavis": "collective",
+    "familleavis_lib": "Procédures collectives",
+    "numerodepartement": "69",
+    "tribunal": "TRIBUNAL DE COMMERCE DE LYON",
+    "commercant": "BISTROT DES CANUTS",
+    "ville": "Lyon",
+    "cp": "69004",
+    "registre": ["912 345 678", "912345678"],
+    "listepersonnes": "{\"personne\": {\"typePersonne\": \"pm\", \"denomination\": \"BISTROT DES CANUTS\", \"formeJuridique\": \"Société par actions simplifiée\", \"numeroImmatriculation\": {\"numeroIdentification\": \"912 345 678\", \"codeRCS\": \"RCS\", \"nomGreffeImmat\": \"Lyon\"}}}",
+    "jugement": "{\"type\": \"initial\", \"famille\": \"Jugement d'ouverture\", \"nature\": \"Jugement d'ouverture d'une procédure de redressement judiciaire\", \"date\": \"2026-08-27\", \"complementJugement\": \"Jugement prononçant l'ouverture d'une procédure de redressement judiciaire, date de cessation des paiements le 15/07/2026, désignant mandataire judiciaire SELARL MJ EXEMPLE en la personne de Me Durand, administrateur judiciaire SCP AJ EXEMPLE. Les déclarations des créances sont à adresser au mandataire judiciaire dans les deux mois à compter de la publication au BODACC.\"}",
+    "url_complete": "https://www.bodacc.fr/pages/annonces-commerciales-detail/?q.id=id:A202601900123"
+  },
+  {
+    "id": "A202602000456",
+    "dateparution": "2026-10-13",
+    "familleavis": "collective",
+    "commercant": "BISTROT DES CANUTS",
+    "ville": "Lyon",
+    "cp": "69004",
+    "registre": ["912 345 678", "912345678"],
+    "listepersonnes": {"personne": {"typePersonne": "pm", "denomination": "BISTROT DES CANUTS"}},
+    "jugement": {"famille": "Jugement de conversion", "nature": "Jugement de conversion en liquidation judiciaire", "date": "8 octobre 2026", "complementJugement": "Jugement de conversion en liquidation judiciaire désignant liquidateur SELARL MJ EXEMPLE en la personne de Me Durand."}
+  }
+]
