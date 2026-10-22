@@ -8,7 +8,8 @@ from fastapi.responses import PlainTextResponse
 from pydantic import BaseModel, Field
 
 from app import db, runs
-from app.cases import today
+from app.baseline import naive_deadline
+from app.cases import to_legal_notice, today
 
 router = APIRouter(prefix="/api")
 
@@ -53,6 +54,10 @@ def get_case(case_id: int) -> dict:
            from case_events e join bodacc_notices n on n.id = e.notice_id
            where e.case_id = %s order by n.date_parution, n.id""", (case["anchor_notice_id"], case_id))
     anchor = next((n for n in timeline if n["is_anchor"]), None)
+    hist = db.query("select * from bodacc_notices where siren = %s and event_kind = any(%s) order by date_parution",
+                    (case["siren"], ["OPENING", "CONVERSION", "PRONOUNCED_LJ", "PLAN_RESOLUTION"]))
+    naive = naive_deadline([to_legal_notice(n) for n in hist])
+    case["naive_deadline"] = naive if naive and naive != case["claim_deadline"] else None
     invoices = db.query(
         """select i.id, i.number, i.invoice_date, i.due_date, i.amount_cents, i.amount_cents - i.paid_cents
                   as outstanding_cents, cc.category, cc.basis, cc.fait_generateur, cc.evidence_document_id,

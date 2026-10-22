@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "forclos",
+      "runtimeExecutable": "/Users/philippetchinda/Downloads/forclos/.venv/bin/uvicorn",
+      "runtimeArgs": ["app.main:app", "--port", "8080", "--reload", "--reload-dir", "app"],
+      "port": 8080
+    }
+  ]
+}
