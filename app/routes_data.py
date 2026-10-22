@@ -6,7 +6,7 @@ import os
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
-from app import db
+from app import db, runs
 from app.cases import CASE_KINDS, today
 from app.demo import load_seed
 from app.scheduler import SYNC_MINUTES, sync
@@ -80,6 +80,9 @@ def dashboard() -> dict:
         "customers_at_risk": len({c["customer"]["id"] for c in live}),
         "nearest_deadline": nearest["claim_deadline"] if nearest else None,
         "nearest_days_left": nearest["days_left"] if nearest else None,
+        "live_runs": db.query_one(
+            f"""select count(*) as n from agent_runs r join customers cu on cu.id = r.customer_id
+                where cu.dataset = 'demo' and r.status = 'RUNNING' and not {runs.STALLED}""")["n"],
         "today": t,
         "cases": cases,
         "customers": customers,

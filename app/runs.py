@@ -13,6 +13,9 @@ from app.tools import RunContext, _dumps, make_handlers
 log = logging.getLogger("forclos.runs")
 MAX_CONCURRENT_RUNS = 6
 MAX_RUNS_PER_10_MIN = int(os.getenv("FORCLOS_MAX_RUNS_PER_10_MIN", "40"))  # the URL is public; runs cost tokens
+STALL_SECONDS = 120
+LAST_ACTIVITY = "coalesce((select max(s.created_at) from agent_steps s where s.run_id = r.id), r.started_at)"
+STALLED = f"(r.status = 'RUNNING' and {LAST_ACTIVITY} < now() - interval '{STALL_SECONDS} seconds')"
 _slots = threading.Semaphore(MAX_CONCURRENT_RUNS)
 
 
@@ -60,14 +63,30 @@ def start_run(kind: str, task: str, case_id: int | None = None, customer_id: int
                               ).fetchone()["n"]
         if not wait and recent >= MAX_RUNS_PER_10_MIN:
             raise RunLimitError("Too many agent runs in the last 10 minutes. Try again shortly.")
-        conn.execute("insert into agent_runs (id, case_id, customer_id, task, model) values (%s, %s, %s, %s, %s)",
-                     (ctx.run_id, case_id, customer_id, kind, agent.MODEL))
+        conn.execute("insert into agent_runs (id, case_id, customer_id, task, model, prompt) values (%s, %s, %s, %s, %s, %s)",
+                     (ctx.run_id, case_id, customer_id, kind, agent.MODEL, task))
         if case_id:
             conn.execute("update cases set status = 'INVESTIGATING', updated_at = now() where id = %s", (case_id,))
     if wait:
         return {"run_id": ctx.run_id, **_execute(ctx, task)}
     threading.Thread(target=_execute, args=(ctx, task), daemon=True, name=f"run-{ctx.run_id[:8]}").start()
     return ctx.run_id
+
+
+def expire_interrupted_runs() -> int:
+    with transaction() as conn:
+        rows = conn.execute(
+            f"""update agent_runs r set status = 'ERROR', finished_at = {LAST_ACTIVITY},
+                  summary = coalesce(r.summary, 'Interrupted: no activity for {STALL_SECONDS} seconds (server restart).')
+                where {STALLED} returning r.case_id""").fetchall()
+        cases = [x["case_id"] for x in rows if x["case_id"]]
+        if cases:
+            conn.execute(
+                """update cases c set status = 'NEEDS_REVIEW', updated_at = now()
+                   where c.id = any(%s) and c.status = 'INVESTIGATING'
+                     and not exists (select 1 from agent_runs r where r.case_id = c.id and r.status = 'RUNNING')""",
+                (cases,))
+    return len(rows)
 
 
 def investigate_case(case_id: int, customer_id: int, trigger: str, wait: bool = False):

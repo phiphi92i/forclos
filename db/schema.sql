@@ -158,6 +158,7 @@ create table if not exists agent_runs (
   started_at  timestamptz not null default now(),
   finished_at timestamptz
 );
+alter table agent_runs add column if not exists prompt text;
 
 create table if not exists agent_steps (     -- the evidence trail streamed to the UI
   id          bigserial primary key,

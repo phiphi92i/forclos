@@ -1,6 +1,7 @@
 """Case routes: case detail, investigations, judge inputs (customer, document), run trail, actions."""
 from __future__ import annotations
 
+import re
 from datetime import date
 
 from fastapi import APIRouter, HTTPException
@@ -12,6 +13,12 @@ from app.baseline import naive_deadline
 from app.cases import to_legal_notice, today
 
 router = APIRouter(prefix="/api")
+TRIGGER = re.compile(r"Trigger: (.*?)\.?\s+Confirm the identity", re.S)
+
+
+def _trigger(prompt: str | None) -> str | None:
+    m = TRIGGER.search(prompt or "")
+    return m.group(1).strip() if m else None
 
 
 class InvestigateIn(BaseModel):
@@ -76,8 +83,9 @@ def get_case(case_id: int) -> dict:
         inv["changed"] = bool(prev and prev["category"] != inv["category"])
     actions = db.query("select * from actions where case_id = %s order by id", (case_id,))
     run = db.query_one(
-        """select id, task, status, summary, model, input_tokens, output_tokens, started_at, finished_at
-           from agent_runs where case_id = %s order by started_at desc limit 1""", (case_id,))
+        f"""select r.id, r.task, r.status, r.summary, r.model, r.input_tokens, r.output_tokens, r.started_at,
+                  r.finished_at, {runs.STALLED} as stalled
+           from agent_runs r where r.case_id = %s order by r.started_at desc limit 1""", (case_id,))
     documents = db.query("select id, kind, doc_date, invoice_id, added_by from documents where customer_id = %s "
                          "order by id", (case["customer_id"],))
     contracts = db.query("select id, kind, retention_of_title, published_security, signed_on from contracts "
@@ -91,6 +99,7 @@ def get_case(case_id: int) -> dict:
 
 @router.post("/cases/{case_id}/investigate")
 def investigate(case_id: int, body: InvestigateIn) -> dict:
+    runs.expire_interrupted_runs()
     case = _case_or_404(case_id)
     if case["status"] == "INVESTIGATING":
         run = db.query_one("select id from agent_runs where case_id = %s and status = 'RUNNING' "
@@ -141,15 +150,37 @@ def add_document(body: DocumentIn) -> dict:
     return {"document_id": doc["id"], "run_id": runs.investigate_case(case["id"], body.customer_id, trigger)}
 
 
+@router.get("/runs")
+def list_runs(limit: int = 30, dataset: str = "demo") -> list[dict]:
+    rows = db.query(
+        f"""select r.id, r.task, r.status, r.summary, r.model, r.input_tokens, r.output_tokens, r.started_at,
+                  r.finished_at, r.case_id, r.customer_id, r.prompt, cu.crm_name,
+                  coalesce(a.denomination, (select n.denomination from bodacc_notices n where n.siren = k.siren
+                                            order by n.date_parution desc limit 1)) as denomination,
+                  (select count(*) from agent_steps s where s.run_id = r.id and s.kind = 'TOOL_CALL') as actions,
+                  (select s.tool from agent_steps s where s.run_id = r.id and s.kind = 'TOOL_CALL'
+                   order by s.id desc limit 1) as last_tool,
+                  {runs.LAST_ACTIVITY} as last_activity, {runs.STALLED} as stalled
+           from agent_runs r join customers cu on cu.id = r.customer_id
+           left join cases k on k.id = r.case_id left join bodacc_notices a on a.id = k.anchor_notice_id
+           where cu.dataset = %s order by r.started_at desc limit %s""", (dataset, max(1, min(limit, 100))))
+    for row in rows:
+        row["trigger"] = _trigger(row.pop("prompt"))
+    return rows
+
+
 @router.get("/runs/{run_id}/steps")
 def run_steps(run_id: str, after: int = 0) -> dict:
-    run = db.query_one("select id, status, summary, case_id, customer_id, task, input_tokens, output_tokens "
-                       "from agent_runs where id::text = %s", (run_id,))
+    run = db.query_one(
+        f"""select r.id, r.status, r.summary, r.case_id, r.customer_id, r.task, r.input_tokens, r.output_tokens,
+                  r.model, r.prompt, r.started_at, r.finished_at, cu.crm_name, now() as server_now,
+                  {runs.LAST_ACTIVITY} as last_activity, {runs.STALLED} as stalled
+           from agent_runs r left join customers cu on cu.id = r.customer_id where r.id::text = %s""", (run_id,))
     if not run:
         raise HTTPException(404, "run not found")
     steps = db.query("select id, kind, tool, payload, created_at from agent_steps where run_id = %s and id > %s "
                      "order by id", (run["id"], after))
-    return {**run, "steps": steps}
+    return {**run, "trigger": _trigger(run["prompt"]), "steps": steps}
 
 
 @router.post("/actions/{action_id}/apply")

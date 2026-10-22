@@ -4,48 +4,47 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#ffffff">
-<title>FORCLOS</title>
+<title>FORCLOS · Your insolvency claims, filed on time</title>
+<meta name="description" content="FORCLOS reads every insolvency notice in France, finds which of your customers are affected and prepares your claim before the deadline.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/static/app.css">
 </head>
 <body>
-<div class="app-shell">
-  <aside class="sidebar" id="sidebar">
+<header class="topbar">
+  <div class="topbar-in">
     <a class="brand" href="#/"><span class="brand-dot"></span>forclos</a>
-    <nav id="nav">
-      <a href="#/" data-nav="overview">Overview <span class="count" id="nav-count" hidden></span></a>
-      <a href="#/customers" data-nav="customers">Customers <span class="count" id="nav-unverified" hidden></span></a>
-      <a href="#/feed" data-nav="feed">BODACC feed</a>
-      <a href="#/import" data-nav="import">Import receivables</a>
-      <a href="#/data" data-nav="data">Data layer</a>
-      <a href="#/benchmark" data-nav="benchmark">Benchmark</a>
+    <nav class="topnav" id="nav">
+      <a href="#/cases" data-nav="cases">Cases <span class="count" id="nav-count" hidden></span></a>
+      <a href="#/agent" data-nav="agent">Agent <span class="count live-count" id="nav-runs" hidden></span></a>
+      <a href="#/proof" data-nav="proof">Proof</a>
     </nav>
-    <div class="sidebar-bottom">
-      <p class="eyebrow">Creditor</p>
-      <div class="creditor">Maison Verdier Distribution</div>
-      <small class="muted">Fictional food-service wholesaler, Lyon</small>
-      <p class="scope">Scope: unsecured trade creditor, metropolitan France. Other cases are sent to a lawyer.</p>
-      <button class="button small" id="btn-reset">Reset demo</button>
+    <div class="topbar-right">
+      <span class="sync" id="sync"><span class="sync-dot"></span><span id="sync-text">Watching the BODACC</span></span>
+      <a class="button small primary" id="cta-app" href="#/cases">Open the app</a>
     </div>
-  </aside>
-  <main class="workspace-main">
-    <div class="topline"><span class="label-chip"><span class="dot"></span>Public BODACC data · fictional ledger · live agent run</span>
-      <button class="menu-button button small" id="btn-menu">Menu</button></div>
-    <div id="view"></div>
-  </main>
-</div>
+  </div>
+</header>
+
+<main id="view"></main>
+
+<footer class="foot">
+  <div class="foot-in">
+    <span><b>Public BODACC data</b> · fictional ledger of Maison Verdier Distribution, a food-service wholesaler in Lyon · <b>live agent runs</b></span>
+    <span class="foot-links"><a href="#/customers">Customers</a><a href="#/import">Import</a><a href="#/feed">BODACC feed</a><a href="#/data">Data</a><button id="btn-reset">Reset demo</button></span>
+  </div>
+  <p class="foot-scope">Scope: unsecured trade creditors in metropolitan France. Anything else is sent to a lawyer. Drafts only: a human signs.</p>
+</footer>
 
 <div class="modal-scrim" id="modal" hidden>
   <div class="modal" role="dialog" aria-labelledby="modal-title">
-    <p class="eyebrow">New customer</p>
-    <h2 id="modal-title">Add a customer as sales typed it</h2>
-    <p class="muted">A trade name and a postal code, no SIREN. The agent finds the legal entity in the register and checks the BODACC.</p>
-    <label class="field"><span>Name in the CRM</span><input id="new-name" placeholder="e.g. Le Lunch Lib" autocomplete="off"></label>
+    <h2 id="modal-title">Add a customer</h2>
+    <p class="muted">Type it the way your sales team does: a shop name and a postal code. The agent finds the real company and checks the BODACC.</p>
+    <label class="field"><span>Customer name</span><input id="new-name" placeholder="e.g. Le Lunch Lib" autocomplete="off"></label>
     <label class="field"><span>Postal code</span><input id="new-cp" placeholder="69120" maxlength="5" inputmode="numeric"></label>
     <div class="button-row end"><button class="button" id="btn-cancel">Cancel</button>
-      <button class="button primary" id="btn-create">Resolve identity</button></div>
+      <button class="button primary" id="btn-create">Find this company</button></div>
   </div>
 </div>
 <div id="toast" class="toast" hidden></div>
