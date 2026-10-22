@@ -351,7 +351,7 @@ def finish(ctx: RunContext, status: str, summary: str) -> dict:
     with transaction() as conn:
         if ctx.case_id and case_status:
             case = _case(conn, ctx.case_id)
-            if case["status"] == "NEEDS_REVIEW" or not case["claim_deadline"]:
+            if not case["claim_deadline"]:  # side review items do not block a claim the agent judged ready
                 case_status = "NEEDS_REVIEW"
             conn.execute("update cases set status = %s, updated_at = now() where id = %s", (case_status, ctx.case_id))
     return {"ok": True, "status": status, "summary": summary}

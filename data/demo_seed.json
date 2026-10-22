@@ -1,0 +1,836 @@
+{
+ "label": "Public BODACC data · fictional ledger · live agent run",
+ "built_on": "2026-10-22",
+ "notices": [
+  {
+   "id": "A202601943502",
+   "publicationavis": "A",
+   "parution": "20260194",
+   "dateparution": "2026-10-09",
+   "numeroannonce": 3502,
+   "typeavis": "annonce",
+   "typeavis_lib": "Avis initial",
+   "familleavis": "collective",
+   "familleavis_lib": "Procédures collectives",
+   "numerodepartement": "69",
+   "departement_nom_officiel": "Rhône",
+   "region_code": 84,
+   "region_nom_officiel": "Auvergne-Rhône-Alpes",
+   "tribunal": "Greffe du Tribunal des Activités Economiques de Lyon",
+   "commercant": "RESTAURANT L'INATTENDU",
+   "ville": "Beauvallon",
+   "registre": [
+    "921339081",
+    "921 339 081"
+   ],
+   "cp": "69700",
+   "pdf_parution_subfolder": 1,
+   "ispdf_unitaire": "oui",
+   "listepersonnes": "{\"personne\": {\"typePersonne\": \"pm\", \"numeroImmatriculation\": {\"numeroIdentification\": \"921 339 081\", \"codeRCS\": \"RCS\", \"nomGreffeImmat\": \"Lyon\"}, \"denomination\": \"RESTAURANT L'INATTENDU\", \"activite\": \"restaurant, débit de boissons, vente à emporter.\", \"formeJuridique\": \"Société par Actions Simplifiée\", \"adresseSiegeSocial\": {\"numeroVoie\": \"168\", \"typeVoie\": \"allée\", \"nomVoie\": \"de l'Innovation\", \"complGeographique\": \"z.i Richard Bloch Chassagny\", \"codePostal\": \"69700\", \"ville\": \"Beauvallon\"}}}",
+   "listeetablissements": null,
+   "jugement": "{\"type\": \"initial\", \"famille\": \"Jugement d'ouverture\", \"nature\": \"Jugement d'ouverture d'une procédure de redressement judiciaire\", \"date\": \"2026-10-01\", \"complementJugement\": \"Jugement prononçant l'ouverture d'une procédure de redressement judiciaire, date de cessation des paiements le 31 août 2026, désignant mandataire judiciaire Selarl Mj Alpes Représentée par Maître Caroline Lepretre 49 rue Servient Cs 23514 69442 Lyon CEDEX 03. Les déclarations des créances sont à adresser au mandataire judiciaire ou sur le portail électronique prévu par les articles L. 814-2 et L. 814-13 du code de commerce dans les deux mois à compter de la présente publication.\"}",
+   "acte": null,
+   "modificationsgenerales": null,
+   "radiationaurcs": null,
+   "depot": null,
+   "listeprecedentexploitant": null,
+   "listeprecedentproprietaire": null,
+   "divers": null,
+   "parutionavisprecedent": null,
+   "url_complete": "https://www.bodacc.fr/pages/annonces-commerciales-detail/?q.id=id:A202601943502"
+  },
+  {
+   "id": "A202601893859",
+   "publicationavis": "A",
+   "parution": "20260189",
+   "dateparution": "2026-10-02",
+   "numeroannonce": 3859,
+   "typeavis": "annonce",
+   "typeavis_lib": "Avis initial",
+   "familleavis": "collective",
+   "familleavis_lib": "Procédures collectives",
+   "numerodepartement": "69",
+   "departement_nom_officiel": "Rhône",
+   "region_code": 84,
+   "region_nom_officiel": "Auvergne-Rhône-Alpes",
+   "tribunal": "Greffe du Tribunal des Activités Economiques de Lyon",
+   "commercant": "SHERFAN SEPT CHEMINS",
+   "ville": "Vaulx-en-Velin",
+   "registre": [
+    "524928900",
+    "524 928 900"
+   ],
+   "cp": "69120",
+   "pdf_parution_subfolder": 1,
+   "ispdf_unitaire": "oui",
+   "listepersonnes": "{\"personne\": {\"typePersonne\": \"pm\", \"numeroImmatriculation\": {\"numeroIdentification\": \"524 928 900\", \"codeRCS\": \"RCS\", \"nomGreffeImmat\": \"Lyon\"}, \"denomination\": \"SHERFAN SEPT CHEMINS\", \"activite\": \"restauration rapide\", \"formeJuridique\": \"Société à Responsabilité Limitée\", \"adresseSiegeSocial\": {\"numeroVoie\": \"232\", \"typeVoie\": \"avenue\", \"nomVoie\": \"Franklin Roosevelt\", \"complGeographique\": \"Centre Commercial Carrefour\", \"codePostal\": \"69120\", \"ville\": \"Vaulx-en-Velin\"}}}",
+   "listeetablissements": null,
+   "jugement": "{\"type\": \"initial\", \"famille\": \"Jugement d'ouverture\", \"nature\": \"Jugement d'ouverture d'une procédure de redressement judiciaire\", \"date\": \"2026-09-24\", \"complementJugement\": \"Jugement prononçant l'ouverture d'une procédure de redressement judiciaire, date de cessation des paiements le 10 août 2026, désignant mandataire judiciaire la Selarl Mj Synergie Représentée par Maître Bruno Walczak, Maître Michaël Elancry Ou Maître Etienne André 136 cours Lafayette Cs 33434 69441 Lyon CEDEX 03. Les déclarations des créances sont à adresser au mandataire judiciaire ou sur le portail électronique prévu par les articles L. 814-2 et L. 814-13 du code de commerce dans les deux mois à compter de la présente publication.\"}",
+   "acte": null,
+   "modificationsgenerales": null,
+   "radiationaurcs": null,
+   "depot": null,
+   "listeprecedentexploitant": null,
+   "listeprecedentproprietaire": null,
+   "divers": null,
+   "parutionavisprecedent": null,
+   "url_complete": "https://www.bodacc.fr/pages/annonces-commerciales-detail/?q.id=id:A202601893859"
+  },
+  {
+   "id": "A202601793514",
+   "publicationavis": "A",
+   "parution": "20260179",
+   "dateparution": "2026-09-18",
+   "numeroannonce": 3514,
+   "typeavis": "annonce",
+   "typeavis_lib": "Avis initial",
+   "familleavis": "collective",
+   "familleavis_lib": "Procédures collectives",
+   "numerodepartement": "69",
+   "departement_nom_officiel": "Rhône",
+   "region_code": 84,
+   "region_nom_officiel": "Auvergne-Rhône-Alpes",
+   "tribunal": "Greffe du Tribunal des Activités Economiques de Lyon",
+   "commercant": "VILLA D'ARISTIDE",
+   "ville": "Saint-Priest",
+   "registre": [
+    "852699149",
+    "852 699 149"
+   ],
+   "cp": "69800",
+   "pdf_parution_subfolder": 1,
+   "ispdf_unitaire": "oui",
+   "listepersonnes": "{\"personne\": {\"typePersonne\": \"pm\", \"numeroImmatriculation\": {\"numeroIdentification\": \"852 699 149\", \"codeRCS\": \"RCS\", \"nomGreffeImmat\": \"Lyon\"}, \"denomination\": \"VILLA D'ARISTIDE\", \"activite\": \"exploitation de résidence hôtelière, hôtel, bar, restaurant, organisation et tenue de réceptions et événements, traiteur\", \"formeJuridique\": \"Société par Actions Simplifiée\", \"adresseSiegeSocial\": {\"numeroVoie\": \"78\", \"typeVoie\": \"rue\", \"nomVoie\": \"Aristide Briand\", \"codePostal\": \"69800\", \"ville\": \"Saint-Priest\"}}}",
+   "listeetablissements": null,
+   "jugement": "{\"type\": \"initial\", \"famille\": \"Jugement d'ouverture\", \"nature\": \"Jugement d'ouverture d'une procédure de redressement judiciaire\", \"date\": \"2026-09-08\", \"complementJugement\": \"Jugement prononçant l'ouverture d'une procédure de redressement judiciaire, date de cessation des paiements le 18 août 2025, désignant mandataire judiciaire la Selarlu Martin Représentée par Maître Pierre Martin le britannia batiment b 20 boulevard Eugène Deruelle 69003 Lyon. Les déclarations des créances sont à adresser au mandataire judiciaire ou sur le portail électronique prévu par les articles L. 814-2 et L. 814-13 du code de commerce dans les deux mois à compter de la présente publication.\"}",
+   "acte": null,
+   "modificationsgenerales": null,
+   "radiationaurcs": null,
+   "depot": null,
+   "listeprecedentexploitant": null,
+   "listeprecedentproprietaire": null,
+   "divers": null,
+   "parutionavisprecedent": null,
+   "url_complete": "https://www.bodacc.fr/pages/annonces-commerciales-detail/?q.id=id:A202601793514"
+  },
+  {
+   "id": "A202601664018",
+   "publicationavis": "A",
+   "parution": "20260166",
+   "dateparution": "2026-08-31",
+   "numeroannonce": 4018,
+   "typeavis": "annonce",
+   "typeavis_lib": "Avis initial",
+   "familleavis": "collective",
+   "familleavis_lib": "Procédures collectives",
+   "numerodepartement": "84",
+   "departement_nom_officiel": "Vaucluse",
+   "region_code": 93,
+   "region_nom_officiel": "Provence-Alpes-Côte d'Azur",
+   "tribunal": "Greffe du Tribunal des Activités Economiques d'Avignon",
+   "commercant": "Brasserie de Vaucroze",
+   "ville": "Sorgues",
+   "registre": [
+    "909659427",
+    "909 659 427"
+   ],
+   "cp": "84700",
+   "pdf_parution_subfolder": 2,
+   "ispdf_unitaire": "oui",
+   "listepersonnes": "{\"personne\": {\"typePersonne\": \"pm\", \"numeroImmatriculation\": {\"numeroIdentification\": \"909 659 427\", \"codeRCS\": \"RCS\", \"nomGreffeImmat\": \"Avignon\"}, \"denomination\": \"Brasserie de Vaucroze\", \"activite\": \"Fabrication de bière\", \"formeJuridique\": \"Société par actions simplifiée\", \"adresseSiegeSocial\": {\"typeVoie\": \"chemin\", \"nomVoie\": \"de Vaucroze\", \"codePostal\": \"84700\", \"ville\": \"Sorgues\"}}}",
+   "listeetablissements": null,
+   "jugement": "{\"type\": \"initial\", \"famille\": \"Jugement d'ouverture\", \"nature\": \"Jugement d'ouverture d'une procédure de redressement judiciaire\", \"date\": \"2026-08-26\", \"complementJugement\": \"Jugement prononçant l'ouverture d'une procédure de redressement judiciaire , date de cessation des paiements le 30 Avril 2025 , désignant mandataire judiciaire Me Simon LAURE 20, boulevard Saint-Michel - 84000 Avignon . Les créances sont à adresser, dans les deux mois de la présente publication, auprès du Mandataire Judiciaire ou sur le portail électronique prévu par les articles L. 814-2 et L. 814-13 du code de commerce.\"}",
+   "acte": null,
+   "modificationsgenerales": null,
+   "radiationaurcs": null,
+   "depot": null,
+   "listeprecedentexploitant": null,
+   "listeprecedentproprietaire": null,
+   "divers": null,
+   "parutionavisprecedent": null,
+   "url_complete": "https://www.bodacc.fr/pages/annonces-commerciales-detail/?q.id=id:A202601664018"
+  },
+  {
+   "id": "A202602035117",
+   "publicationavis": "A",
+   "parution": "20260203",
+   "dateparution": "2026-10-22",
+   "numeroannonce": 5117,
+   "typeavis": "annonce",
+   "typeavis_lib": "Avis initial",
+   "familleavis": "collective",
+   "familleavis_lib": "Procédures collectives",
+   "numerodepartement": "84",
+   "departement_nom_officiel": "Vaucluse",
+   "region_code": 93,
+   "region_nom_officiel": "Provence-Alpes-Côte d'Azur",
+   "tribunal": "Greffe du Tribunal des Activités Economiques d'Avignon",
+   "commercant": "Brasserie de Vaucroze",
+   "ville": "Sorgues",
+   "registre": [
+    "909659427",
+    "909 659 427"
+   ],
+   "cp": "84700",
+   "pdf_parution_subfolder": 2,
+   "ispdf_unitaire": "oui",
+   "listepersonnes": "{\"personne\": {\"typePersonne\": \"pm\", \"numeroImmatriculation\": {\"numeroIdentification\": \"909 659 427\", \"codeRCS\": \"RCS\", \"nomGreffeImmat\": \"Avignon\"}, \"denomination\": \"Brasserie de Vaucroze\", \"activite\": \"Fabrication de bière\", \"formeJuridique\": \"Société par actions simplifiée\", \"adresseSiegeSocial\": {\"typeVoie\": \"chemin\", \"nomVoie\": \"de Vaucroze\", \"codePostal\": \"84700\", \"ville\": \"Sorgues\"}}}",
+   "listeetablissements": null,
+   "jugement": "{\"type\": \"initial\", \"famille\": \"Jugement prononçant\", \"nature\": \"Jugement de conversion en liquidation judiciaire\", \"date\": \"2026-10-14\", \"complementJugement\": \"Jugement prononçant la liquidation judiciaire désignant liquidateur Me Simon LAURE 20, boulevard Saint-Michel - 84000 Avignon .\"}",
+   "acte": null,
+   "modificationsgenerales": null,
+   "radiationaurcs": null,
+   "depot": null,
+   "listeprecedentexploitant": null,
+   "listeprecedentproprietaire": null,
+   "divers": null,
+   "parutionavisprecedent": null,
+   "url_complete": "https://www.bodacc.fr/pages/annonces-commerciales-detail/?q.id=id:A202602035117"
+  },
+  {
+   "id": "A202601943472",
+   "publicationavis": "A",
+   "parution": "20260194",
+   "dateparution": "2026-10-09",
+   "numeroannonce": 3472,
+   "typeavis": "annonce",
+   "typeavis_lib": "Avis initial",
+   "familleavis": "collective",
+   "familleavis_lib": "Procédures collectives",
+   "numerodepartement": "69",
+   "departement_nom_officiel": "Rhône",
+   "region_code": 84,
+   "region_nom_officiel": "Auvergne-Rhône-Alpes",
+   "tribunal": "Greffe du Tribunal des Activités Economiques de Lyon",
+   "commercant": "BELLA PIZZA",
+   "ville": "Montagny",
+   "registre": [
+    "915096036",
+    "915 096 036"
+   ],
+   "cp": "69700",
+   "pdf_parution_subfolder": 1,
+   "ispdf_unitaire": "oui",
+   "listepersonnes": "{\"personne\": {\"typePersonne\": \"pm\", \"numeroImmatriculation\": {\"numeroIdentification\": \"915 096 036\", \"codeRCS\": \"RCS\", \"nomGreffeImmat\": \"Lyon\"}, \"denomination\": \"BELLA PIZZA\", \"activite\": \"pizzéria, vente à emporter\", \"formeJuridique\": \"Société à Responsabilité Limitée\", \"adresseSiegeSocial\": {\"numeroVoie\": \"17\", \"typeVoie\": \"place\", \"nomVoie\": \"de Sourzy\", \"codePostal\": \"69700\", \"ville\": \"Montagny\"}}}",
+   "listeetablissements": null,
+   "jugement": "{\"type\": \"initial\", \"famille\": \"Jugement d'ouverture\", \"nature\": \"Jugement d'ouverture de liquidation judiciaire\", \"date\": \"2026-10-01\", \"complementJugement\": \"Jugement prononçant la liquidation judiciaire, date de cessation des paiements le 30 mars 2026, désignant liquidateur la Selarl Mj Synergie Représentée par Maître Bruno Walczak, Maître Michaël Elancry Ou Maître Etienne André 136 cours Lafayette Cs 33434 69441 Lyon CEDEX 03. Les déclarations des créances sont à adresser au liquidateur judiciaire ou sur le portail électronique prévu par les articles L. 814-2 et L. 814-13 du code de commerce dans les deux mois à compter de la présente publication.\"}",
+   "acte": null,
+   "modificationsgenerales": null,
+   "radiationaurcs": null,
+   "depot": null,
+   "listeprecedentexploitant": null,
+   "listeprecedentproprietaire": null,
+   "divers": null,
+   "parutionavisprecedent": null,
+   "url_complete": "https://www.bodacc.fr/pages/annonces-commerciales-detail/?q.id=id:A202601943472"
+  }
+ ],
+ "company_cache": {
+  "siren:921339081": {
+   "siren": "921339081",
+   "nom_complet": "RESTAURANT L'INATTENDU",
+   "nom_raison_sociale": "RESTAURANT L'INATTENDU",
+   "sigle": null,
+   "enseignes": [
+    "L'INATTENDU"
+   ],
+   "nature_juridique": "5710",
+   "etat_administratif": "A",
+   "siege": {
+    "siret": "92133908100017",
+    "adresse": "Z.I RICHARD BLOCH CHASSAGNY 168 ALL DE L'INNOVATION 69700 BEAUVALLON",
+    "code_postal": "69700",
+    "commune": "BEAUVALLON"
+   },
+   "matching_etablissements": []
+  },
+  "siren:524928900": {
+   "siren": "524928900",
+   "nom_complet": "SHERFAN SEPT CHEMINS (LE LUNCH LIB)",
+   "nom_raison_sociale": "SHERFAN SEPT CHEMINS",
+   "sigle": null,
+   "enseignes": [
+    "LE LUNCH LIB"
+   ],
+   "nature_juridique": "5499",
+   "etat_administratif": "A",
+   "siege": {
+    "siret": "52492890000017",
+    "adresse": "CENTRE COMMERCIAL CARREFOUR 232 AVENUE FRANKLIN ROOSEVELT 69120 VAULX-EN-VELIN",
+    "code_postal": "69120",
+    "commune": "VAULX-EN-VELIN"
+   },
+   "matching_etablissements": []
+  },
+  "siren:852699149": {
+   "siren": "852699149",
+   "nom_complet": "VILLA D'ARISTIDE (LE RELAIS DE LA GARE ROUTIERE)",
+   "nom_raison_sociale": "VILLA D'ARISTIDE",
+   "sigle": null,
+   "enseignes": [
+    "LE RELAIS DE LA GARE ROUTIERE"
+   ],
+   "nature_juridique": "5710",
+   "etat_administratif": "A",
+   "siege": {
+    "siret": "85269914900021",
+    "adresse": "78 RUE ARISTIDE BRIAND 69800 SAINT-PRIEST",
+    "code_postal": "69800",
+    "commune": "SAINT-PRIEST"
+   },
+   "matching_etablissements": []
+  },
+  "siren:909659427": {
+   "siren": "909659427",
+   "nom_complet": "BRASSERIE DE VAUCROZE",
+   "nom_raison_sociale": "BRASSERIE DE VAUCROZE",
+   "sigle": null,
+   "enseignes": [],
+   "nature_juridique": "5710",
+   "etat_administratif": "A",
+   "siege": {
+    "siret": "90965942700019",
+    "adresse": "CHEMIN DE VAUCROZE 84700 SORGUES",
+    "code_postal": "84700",
+    "commune": "SORGUES"
+   },
+   "matching_etablissements": []
+  },
+  "siren:915096036": {
+   "siren": "915096036",
+   "nom_complet": "BELLA PIZZA",
+   "nom_raison_sociale": "BELLA PIZZA",
+   "sigle": null,
+   "enseignes": [],
+   "nature_juridique": "5499",
+   "etat_administratif": "A",
+   "siege": {
+    "siret": "91509603600016",
+    "adresse": "17 PLACE DE SOURZY 69700 MONTAGNY",
+    "code_postal": "69700",
+    "commune": "MONTAGNY"
+   },
+   "matching_etablissements": []
+  },
+  "siren:441137924": {
+   "siren": "441137924",
+   "nom_complet": "RESTAURANT THOMAS",
+   "nom_raison_sociale": "RESTAURANT THOMAS",
+   "sigle": null,
+   "enseignes": [],
+   "nature_juridique": "5499",
+   "etat_administratif": "A",
+   "siege": {
+    "siret": "44113792400011",
+    "adresse": "6 RUE LAURENCIN 69002 LYON",
+    "code_postal": "69002",
+    "commune": "LYON"
+   },
+   "matching_etablissements": []
+  },
+  "siren:419636634": {
+   "siren": "419636634",
+   "nom_complet": "RESTAURANT LE MERCIERE",
+   "nom_raison_sociale": "RESTAURANT LE MERCIERE",
+   "sigle": null,
+   "enseignes": [],
+   "nature_juridique": "5710",
+   "etat_administratif": "A",
+   "siege": {
+    "siret": "41963663400018",
+    "adresse": "56 RUE MERCIERE 69002 LYON",
+    "code_postal": "69002",
+    "commune": "LYON"
+   },
+   "matching_etablissements": []
+  },
+  "siren:530342351": {
+   "siren": "530342351",
+   "nom_complet": "CAFE RESTAURANT DU JURA",
+   "nom_raison_sociale": "CAFE RESTAURANT DU JURA",
+   "sigle": null,
+   "enseignes": [
+    "CAFE RESTAURANT DU JURA"
+   ],
+   "nature_juridique": "5710",
+   "etat_administratif": "A",
+   "siege": {
+    "siret": "53034235100018",
+    "adresse": "25 RUE TUPIN 69002 LYON",
+    "code_postal": "69002",
+    "commune": "LYON"
+   },
+   "matching_etablissements": []
+  },
+  "siren:933419160": {
+   "siren": "933419160",
+   "nom_complet": "RESTAURANT 2 PIQUE",
+   "nom_raison_sociale": "RESTAURANT 2 PIQUE",
+   "sigle": null,
+   "enseignes": [],
+   "nature_juridique": "5710",
+   "etat_administratif": "A",
+   "siege": {
+    "siret": "93341916000017",
+    "adresse": "65 RUE DES GIRONDINS 69007 LYON",
+    "code_postal": "69007",
+    "commune": "LYON"
+   },
+   "matching_etablissements": []
+  },
+  "siren:519177760": {
+   "siren": "519177760",
+   "nom_complet": "DEVEMY RESTAURANT",
+   "nom_raison_sociale": "DEVEMY RESTAURANT",
+   "sigle": null,
+   "enseignes": [],
+   "nature_juridique": "5710",
+   "etat_administratif": "A",
+   "siege": {
+    "siret": "51917776000021",
+    "adresse": "42 RUE FELIX BRUN 69007 LYON",
+    "code_postal": "69007",
+    "commune": "LYON"
+   },
+   "matching_etablissements": []
+  }
+ },
+ "customers": [
+  {
+   "scenario": "A_CLEAN",
+   "crm_name": "Restaurant L'Inattendu",
+   "crm_siren": "921339081",
+   "address": "168 allée de l'Innovation, ZI Richard Bloch",
+   "postal_code": "69700",
+   "city": "Beauvallon",
+   "contracts": [
+    {
+     "key": "a1",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2024-11-04",
+     "body": "Contrat-cadre d'approvisionnement n° CC-2024-118. Maison Verdier Distribution fournit des denrées alimentaires par livraisons successives sur commandes hebdomadaires. Chaque livraison fait l'objet d'un bon de livraison; la facturation peut être regroupée. Paiement à 30 jours. Signé le 04/11/2024."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "a0",
+     "number": "FA-2026-0702",
+     "invoice_date": "2026-07-10",
+     "due_date": "2026-08-09",
+     "amount_cents": 248000,
+     "paid_cents": 248000,
+     "contract": "a1"
+    },
+    {
+     "key": "a1",
+     "number": "FA-2026-0811",
+     "invoice_date": "2026-08-21",
+     "due_date": "2026-09-20",
+     "amount_cents": 214050,
+     "paid_cents": 0,
+     "contract": "a1"
+    },
+    {
+     "key": "a2",
+     "number": "FA-2026-0874",
+     "invoice_date": "2026-09-04",
+     "due_date": "2026-10-04",
+     "amount_cents": 338500,
+     "paid_cents": 0,
+     "contract": "a1"
+    },
+    {
+     "key": "a3",
+     "number": "FA-2026-0915",
+     "invoice_date": "2026-09-18",
+     "due_date": "2026-10-18",
+     "amount_cents": 191240,
+     "paid_cents": 0,
+     "contract": "a1"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "a1",
+     "doc_date": "2026-08-20",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-2026-3902\nDate de livraison : 20/08/2026\nLivré à : Restaurant L'Inattendu, 168 allée de l'Innovation, 69700 Beauvallon\n- Viandes et volailles\n- Produits laitiers\nFacture associée : FA-2026-0811\nMarchandise reçue conforme. Signature du client : [signé]\nClause de réserve de propriété : voir contrat-cadre le cas échéant."
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "a2",
+     "doc_date": "2026-09-03",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-2026-4310\nDate de livraison : 03/09/2026\nLivré à : Restaurant L'Inattendu, 168 allée de l'Innovation, 69700 Beauvallon\n- Épicerie sèche\n- Boissons\nFacture associée : FA-2026-0874\nMarchandise reçue conforme. Signature du client : [signé]\nClause de réserve de propriété : voir contrat-cadre le cas échéant."
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "a3",
+     "doc_date": "2026-09-17",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-2026-4688\nDate de livraison : 17/09/2026\nLivré à : Restaurant L'Inattendu, 168 allée de l'Innovation, 69700 Beauvallon\n- Fruits et légumes\n- Surgelés\nFacture associée : FA-2026-0915\nMarchandise reçue conforme. Signature du client : [signé]\nClause de réserve de propriété : voir contrat-cadre le cas échéant."
+    }
+   ]
+  },
+  {
+   "scenario": "B_IDENTITY",
+   "crm_name": "Le Lunch Lib",
+   "crm_siren": null,
+   "address": "Centre commercial Carrefour, 232 av. Franklin Roosevelt",
+   "postal_code": "69120",
+   "city": "Vaulx-en-Velin",
+   "contracts": [
+    {
+     "key": "b1",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-02-17",
+     "body": "Contrat-cadre d'approvisionnement n° CC-2025-031. Maison Verdier Distribution fournit des denrées alimentaires par livraisons successives sur commandes hebdomadaires. Chaque livraison fait l'objet d'un bon de livraison; la facturation peut être regroupée. Paiement à 30 jours. Signé le 17/02/2025."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "b1",
+     "number": "FA-2026-0829",
+     "invoice_date": "2026-08-28",
+     "due_date": "2026-09-27",
+     "amount_cents": 428000,
+     "paid_cents": 0,
+     "contract": "b1"
+    },
+    {
+     "key": "b2",
+     "number": "FA-2026-0890",
+     "invoice_date": "2026-09-11",
+     "due_date": "2026-10-11",
+     "amount_cents": 291560,
+     "paid_cents": 0,
+     "contract": "b1"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "b1",
+     "doc_date": "2026-08-27",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-2026-4015\nDate de livraison : 27/08/2026\nLivré à : LE LUNCH LIB, Centre commercial Carrefour, 232 avenue Franklin Roosevelt, 69120 Vaulx-en-Velin\n- Pains et viennoiseries surgelés\n- Charcuterie\nFacture associée : FA-2026-0829\nMarchandise reçue conforme. Signature du client : [signé]\nClause de réserve de propriété : voir contrat-cadre le cas échéant."
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "b2",
+     "doc_date": "2026-09-10",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-2026-4402\nDate de livraison : 10/09/2026\nLivré à : LE LUNCH LIB, Centre commercial Carrefour, 232 avenue Franklin Roosevelt, 69120 Vaulx-en-Velin\n- Boissons\n- Emballages vente à emporter\nFacture associée : FA-2026-0890\nMarchandise reçue conforme. Signature du client : [signé]\nClause de réserve de propriété : voir contrat-cadre le cas échéant."
+    }
+   ]
+  },
+  {
+   "scenario": "C_DOCUMENTS",
+   "crm_name": "Villa d'Aristide",
+   "crm_siren": "852699149",
+   "address": "78 rue Aristide Briand",
+   "postal_code": "69800",
+   "city": "Saint-Priest",
+   "contracts": [
+    {
+     "key": "c1",
+     "kind": "FRAMEWORK_SUPPLY",
+     "retention_of_title": true,
+     "signed_on": "2025-03-01",
+     "body": "Contrat-cadre d'approvisionnement n° CC-2025-044. Maison Verdier Distribution fournit des denrées alimentaires par livraisons successives sur commandes hebdomadaires. Chaque livraison fait l'objet d'un bon de livraison; la facturation peut être regroupée. Paiement à 30 jours. Clause de réserve de propriété : les marchandises restent la propriété du fournisseur jusqu'au paiement intégral du prix. Signé le 01/03/2025."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "c0",
+     "number": "FA-2026-0688",
+     "invoice_date": "2026-07-03",
+     "due_date": "2026-08-02",
+     "amount_cents": 521000,
+     "paid_cents": 521000,
+     "contract": "c1"
+    },
+    {
+     "key": "c1",
+     "number": "FA-2026-0790",
+     "invoice_date": "2026-08-14",
+     "due_date": "2026-09-13",
+     "amount_cents": 682000,
+     "paid_cents": 0,
+     "contract": "c1"
+    },
+    {
+     "key": "c2",
+     "number": "FA-2026-0941",
+     "invoice_date": "2026-09-14",
+     "due_date": "2026-10-14",
+     "amount_cents": 1840000,
+     "paid_cents": 0,
+     "contract": "c1"
+    },
+    {
+     "key": "c3",
+     "number": "FA-2026-0968",
+     "invoice_date": "2026-09-25",
+     "due_date": "2026-10-25",
+     "amount_cents": 315000,
+     "paid_cents": 0,
+     "contract": "c1"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "c1",
+     "doc_date": "2026-08-13",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-2026-3811\nDate de livraison : 13/08/2026\nLivré à : Villa d'Aristide, 78 rue Aristide Briand, 69800 Saint-Priest\n- Viandes\n- Produits de la mer\nFacture associée : FA-2026-0790\nMarchandise reçue conforme. Signature du client : [signé]\nClause de réserve de propriété : voir contrat-cadre le cas échéant."
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "c2",
+     "doc_date": "2026-09-05",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-2026-4471\nDate de livraison : 05/09/2026\nLivré à : Villa d'Aristide, 78 rue Aristide Briand, 69800 Saint-Priest\n- Commande séminaire 120 couverts : viandes, fromages, vins\n- Épicerie fine\nLivraison du samedi 05/09/2026. Facturation regroupée en fin de quinzaine (facture FA-2026-0941 du 14/09/2026).\nMarchandise reçue conforme. Signature du client : [signé]\nClause de réserve de propriété : voir contrat-cadre le cas échéant."
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "c3",
+     "doc_date": "2026-09-22",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-2026-4790\nDate de livraison : 22/09/2026\nLivré à : Villa d'Aristide, 78 rue Aristide Briand, 69800 Saint-Priest\n- Fruits et légumes\n- Produits laitiers\nFacture associée : FA-2026-0968\nMarchandise reçue conforme. Signature du client : [signé]\nClause de réserve de propriété : voir contrat-cadre le cas échéant."
+    }
+   ]
+  },
+  {
+   "scenario": "D_CONVERSION",
+   "crm_name": "Brasserie de Vaucroze",
+   "crm_siren": "909659427",
+   "address": "Route de Vaucroze",
+   "postal_code": "84700",
+   "city": "Sorgues",
+   "contracts": [
+    {
+     "key": "d1",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-05-12",
+     "body": "Contrat-cadre d'approvisionnement n° CC-2025-077. Maison Verdier Distribution fournit des denrées alimentaires par livraisons successives sur commandes hebdomadaires. Chaque livraison fait l'objet d'un bon de livraison; la facturation peut être regroupée. Paiement à 30 jours. Signé le 12/05/2025."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "d1",
+     "number": "FA-2026-0655",
+     "invoice_date": "2026-07-17",
+     "due_date": "2026-08-16",
+     "amount_cents": 564000,
+     "paid_cents": 0,
+     "contract": "d1"
+    },
+    {
+     "key": "d2",
+     "number": "FA-2026-0761",
+     "invoice_date": "2026-08-07",
+     "due_date": "2026-09-06",
+     "amount_cents": 231075,
+     "paid_cents": 0,
+     "contract": "d1"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "d1",
+     "doc_date": "2026-07-16",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-2026-3405\nDate de livraison : 16/07/2026\nLivré à : Brasserie de Vaucroze, 84700 Sorgues\n- Produits pour le restaurant de la brasserie\n- Boissons\nFacture associée : FA-2026-0655\nMarchandise reçue conforme. Signature du client : [signé]\nClause de réserve de propriété : voir contrat-cadre le cas échéant."
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "d2",
+     "doc_date": "2026-08-06",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-2026-3698\nDate de livraison : 06/08/2026\nLivré à : Brasserie de Vaucroze, 84700 Sorgues\n- Épicerie\n- Produits laitiers\nFacture associée : FA-2026-0761\nMarchandise reçue conforme. Signature du client : [signé]\nClause de réserve de propriété : voir contrat-cadre le cas échéant."
+    }
+   ]
+  },
+  {
+   "scenario": "E_HOMONYM",
+   "crm_name": "Bella Pizza",
+   "crm_siren": null,
+   "address": "14 avenue Charles de Gaulle",
+   "postal_code": "38800",
+   "city": "Le Pont-de-Claix",
+   "contracts": [],
+   "invoices": [
+    {
+     "key": "e0",
+     "number": "FA-2026-0721",
+     "invoice_date": "2026-07-24",
+     "due_date": "2026-08-23",
+     "amount_cents": 98000,
+     "paid_cents": 98000,
+     "contract": null
+    },
+    {
+     "key": "e1",
+     "number": "FA-2026-0951",
+     "invoice_date": "2026-09-29",
+     "due_date": "2026-10-29",
+     "amount_cents": 124000,
+     "paid_cents": 0,
+     "contract": null
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "e1",
+     "doc_date": "2026-09-28",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-2026-4851\nDate de livraison : 28/09/2026\nLivré à : Bella Pizza, 14 avenue Charles de Gaulle, 38800 Le Pont-de-Claix\n- Farine, mozzarella, sauce tomate\nFacture associée : FA-2026-0951\nMarchandise reçue conforme. Signature du client : [signé]\nClause de réserve de propriété : voir contrat-cadre le cas échéant."
+    }
+   ]
+  },
+  {
+   "scenario": "HEALTHY",
+   "crm_name": "Restaurant Thomas",
+   "crm_siren": "441137924",
+   "address": "6 RUE LAURENCIN",
+   "postal_code": "69002",
+   "city": "Lyon",
+   "contracts": [],
+   "invoices": [
+    {
+     "key": "h0a",
+     "number": "FA-2026-1100",
+     "invoice_date": "2026-08-01",
+     "due_date": "2026-08-31",
+     "amount_cents": 133170,
+     "paid_cents": 133170,
+     "contract": null
+    },
+    {
+     "key": "h0b",
+     "number": "FA-2026-1101",
+     "invoice_date": "2026-09-15",
+     "due_date": "2026-10-15",
+     "amount_cents": 106536,
+     "paid_cents": 106536,
+     "contract": null
+    }
+   ],
+   "documents": []
+  },
+  {
+   "scenario": "HEALTHY",
+   "crm_name": "Restaurant Le Merciere",
+   "crm_siren": "419636634",
+   "address": "56 RUE MERCIERE",
+   "postal_code": "69002",
+   "city": "Lyon",
+   "contracts": [],
+   "invoices": [
+    {
+     "key": "h2a",
+     "number": "FA-2026-1104",
+     "invoice_date": "2026-08-15",
+     "due_date": "2026-09-14",
+     "amount_cents": 219510,
+     "paid_cents": 219510,
+     "contract": null
+    },
+    {
+     "key": "h2b",
+     "number": "FA-2026-1105",
+     "invoice_date": "2026-09-29",
+     "due_date": "2026-10-29",
+     "amount_cents": 175608,
+     "paid_cents": 175608,
+     "contract": null
+    }
+   ],
+   "documents": []
+  },
+  {
+   "scenario": "HEALTHY",
+   "crm_name": "Cafe Restaurant Du Jura",
+   "crm_siren": "530342351",
+   "address": "25 RUE TUPIN",
+   "postal_code": "69002",
+   "city": "Lyon",
+   "contracts": [],
+   "invoices": [
+    {
+     "key": "h3a",
+     "number": "FA-2026-1106",
+     "invoice_date": "2026-08-22",
+     "due_date": "2026-09-21",
+     "amount_cents": 262680,
+     "paid_cents": 262680,
+     "contract": null
+    },
+    {
+     "key": "h3b",
+     "number": "FA-2026-1107",
+     "invoice_date": "2026-10-06",
+     "due_date": "2026-11-05",
+     "amount_cents": 210144,
+     "paid_cents": 0,
+     "contract": null
+    }
+   ],
+   "documents": []
+  },
+  {
+   "scenario": "HEALTHY",
+   "crm_name": "Restaurant 2 Pique",
+   "crm_siren": "933419160",
+   "address": "65 RUE DES GIRONDINS",
+   "postal_code": "69007",
+   "city": "Lyon",
+   "contracts": [],
+   "invoices": [
+    {
+     "key": "h4a",
+     "number": "FA-2026-1108",
+     "invoice_date": "2026-08-29",
+     "due_date": "2026-09-28",
+     "amount_cents": 305850,
+     "paid_cents": 305850,
+     "contract": null
+    },
+    {
+     "key": "h4b",
+     "number": "FA-2026-1109",
+     "invoice_date": "2026-10-13",
+     "due_date": "2026-11-12",
+     "amount_cents": 244680,
+     "paid_cents": 244680,
+     "contract": null
+    }
+   ],
+   "documents": []
+  },
+  {
+   "scenario": "HEALTHY",
+   "crm_name": "Devemy Restaurant",
+   "crm_siren": "519177760",
+   "address": "42 RUE FELIX BRUN",
+   "postal_code": "69007",
+   "city": "Lyon",
+   "contracts": [],
+   "invoices": [
+    {
+     "key": "h5a",
+     "number": "FA-2026-1110",
+     "invoice_date": "2026-09-05",
+     "due_date": "2026-10-05",
+     "amount_cents": 349020,
+     "paid_cents": 349020,
+     "contract": null
+    },
+    {
+     "key": "h5b",
+     "number": "FA-2026-1111",
+     "invoice_date": "2026-10-20",
+     "due_date": "2026-11-19",
+     "amount_cents": 279216,
+     "paid_cents": 0,
+     "contract": null
+    }
+   ],
+   "documents": []
+  }
+ ]
+}
