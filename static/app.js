@@ -128,11 +128,11 @@ async function renderHome() {
         ${howCard(3, "Prepare", "The claim, the legal deadline and the protective steps, ready for your signature.", data ? n(data.memory.actions) : "—", "actions prepared")}
       </div></div></section>
     ${bars.length === 3 ? `<section class="proof-band"><div class="wrap">
-      <div class="proof-copy"><h2 class="sec-h">Tested on ${m("FORCLOS").n} real insolvent companies.</h2>
-        <p>With customer records as messy as real ones. Here is the value of the claims each tool would have let slip.</p>
+      <div class="proof-copy"><h2 class="sec-h">Tested on ${m("FORCLOS").n} cases built from real insolvency notices.</h2>
+        <p>With customer records as messy as real ones. Here is the value of the claims each approach would have let slip.</p>
         <a class="button xl" href="#/proof">See the test ${ico("next")}</a></div>
       <div class="hbars">${bars.map((s) => `<div class="hbar ${s === "FORCLOS" ? "us" : ""}">
-        <span class="hbar-label">${{ NAIVE: "Basic alert", RULES: "Rules only", FORCLOS: "FORCLOS" }[s]}</span>
+        <span class="hbar-label">${{ NAIVE: "Name search", RULES: "SIREN alerts", FORCLOS: "FORCLOS" }[s]}</span>
         <span class="hbar-track"><span class="hbar-fill" style="width:${Math.max(1.5, (m(s).eur_lost_cents / max) * 100)}%"></span></span>
         <span class="hbar-value num">${eur(m(s).eur_lost_cents)}</span></div>`).join("")}</div>
     </div></section>` : ""}
@@ -180,7 +180,7 @@ async function renderCases() {
     </div>
     <div class="case-list">${rows || '<p class="empty">No customer matches a BODACC notice.</p>'}</div>
     ${noId.length ? `<div class="check-card"><div><b>${noId.length} customer${noId.length === 1 ? " has" : "s have"} no company ID</b>
-      <p>A basic alert cannot see them. The agent can find them.</p></div>
+      <p>SIREN alert services (Infogreffe, Societe.com, Creditsafe) need a SIREN, so they cannot watch them. The agent finds them.</p></div>
       <div class="chips">${noId.map((c) => `<button class="chip-btn" data-resolve="${c.id}">Find ${esc(c.crm_name)}</button>`).join("")}</div></div>` : ""}
   </section>`;
   $("btn-add").onclick = openModal;
@@ -236,7 +236,7 @@ async function renderCase() {
         <div class="stat-card ${found ? "gain" : ""}"><span class="label">Found by the agent</span><b class="big num">${found ? "+" + eur(found) : c.latest_run ? "€0" : "—"}</b>
           <span class="hint">${found ? "a rules engine would have left it out" : c.latest_run ? "the rules had it right" : "not investigated yet"}</span></div>
       </div>
-      ${naiveLate > 0 ? `<div class="warn">${ico("alert")}<span>A basic alert restarts the clock at the latest notice and says <b>${fr(c.naive_deadline)}</b>. That is <b>${naiveLate} days too late</b>.</span></div>` : ""}
+      ${naiveLate > 0 ? `<div class="warn">${ico("alert")}<span>Counting 60 days from the latest notice gives <b>${fr(c.naive_deadline)}</b>: <b>${naiveLate} days too late</b>. The deadline runs from the opening judgment.</span></div>` : ""}
       <div class="button-row" style="margin-top:22px">
         <button class="button primary xl" id="btn-run" ${running ? "disabled" : ""}>${running ? "Investigating…" : c.latest_run ? "Investigate again" : "Let the agent investigate"}</button>
         ${c.latest_run ? `<button class="button xl" id="btn-watch">${ico("play")}Watch the last run</button>` : ""}</div>
@@ -1028,20 +1028,20 @@ async function renderProof() {
   if (sys.length < 3) { $("view").innerHTML = '<section class="page"><h1>Does it work?</h1><p class="lead">No test has been run yet.</p></section>'; return; }
   const [naive, rules, us] = sys.map((r) => r.metrics), dev = get("dev", "FORCLOS")?.metrics;
   const max = Math.max(1, naive.eur_lost_cents, rules.eur_lost_cents);
-  const NAME = { NAIVE: ["A basic insolvency alert", "Matches names, counts 60 days, trusts invoice dates"],
-                 RULES: ["Rules only", "Exact company ID and the correct legal deadline"],
+  const NAME = { NAIVE: ["Searching bodacc.fr by name", "What a supplier does by hand: match names, count 60 days, trust invoice dates"],
+                 RULES: ["SIREN alert services", "Infogreffe, Societe.com, Creditsafe: an alert on the SIRENs you list. Modelled, with the legal deadline added"],
                  FORCLOS: ["FORCLOS", "The same rules, plus the agent that investigates"] };
   const when = new Date(sys[2].run_at).toLocaleString("en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
   const row = (label, f) => `<tr><td>${label}</td><td>${f(naive)}</td><td>${f(rules)}</td><td class="us">${f(us)}</td></tr>`;
   $("view").innerHTML = `<section class="page">
     <div class="page-head"><div><h1>Does it work?</h1>
-      <p class="lead">We gave ${us.n} real insolvent companies to three tools, with customer records as messy as real ones, and counted the claims each would have missed.</p></div></div>
+      <p class="lead">${us.n} cases built from real insolvency notices (${us.affected} insolvent customers, ${us.healthy} healthy look-alikes), with customer records as messy as real ones. We counted the claims each approach would have missed.</p></div></div>
     <div class="pbars">${sys.map((r) => { const m = r.metrics, [name, desc] = NAME[r.system]; return `<div class="pbar ${r.system === "FORCLOS" ? "us" : ""}">
       <span class="pbar-name"><b>${name}</b><span>${desc}</span></span>
       <span class="pbar-track"><span style="width:${Math.max(1.2, (m.eur_lost_cents / max) * 100)}%"></span></span>
       <span class="pbar-val"><b class="num">${eur(m.eur_lost_cents)}</b><span>of claims missed</span></span></div>`; }).join("")}</div>
     <p class="pnote">Out of ${eur(us.truth_declare_cents)} that should have been claimed on time.</p>
-    <div class="ptable-wrap"><table class="ptable"><thead><tr><th></th><th>Basic alert</th><th>Rules only</th><th class="us">FORCLOS</th></tr></thead><tbody>
+    <div class="ptable-wrap"><table class="ptable"><thead><tr><th></th><th>bodacc.fr by name</th><th>SIREN alerts</th><th class="us">FORCLOS</th></tr></thead><tbody>
       ${row("Insolvent customers found", (m) => `${m.found} of ${m.affected}`)}
       ${row("Healthy customers wrongly flagged", (m) => `${m.false_alarms} of ${m.healthy}`)}
       ${row("Exact legal deadline", (m) => `${m.deadline_ok} of ${m.affected}`)}
@@ -1052,7 +1052,7 @@ async function renderProof() {
       <div><h3>Messy records</h3><p>Shop names instead of legal names, typos, the ID of a closed company, healthy look-alikes, invoices dated after the judgment, a redressement turned into a liquidation.</p></div>
       <div><h3>Never seen before</h3><p>These ${us.n} cases were kept aside during development and run once, on ${when}.${dev ? ` On the ${dev.n} development cases: ${eur(dev.eur_lost_cents)} missed too.` : ""}</p></div>
     </div>
-    <p class="small muted">A simulation: the companies are real, the customer errors are generated by us.${us.reviewed ? ` ${us.reviewed} cases were also flagged for a human check.` : ""} Recorded runs of benchmark/run.py.</p>
+    <p class="small muted">A simulation: the companies are real, the customer errors are generated by us. The two comparison columns model how these approaches work; they are not tests of Infogreffe, Societe.com or Creditsafe, which give an alert but no deadline or claim.${us.reviewed ? ` ${us.reviewed} cases were also flagged for a human check.` : ""} Recorded runs of benchmark/run.py.</p>
     <details class="every"><summary>See every case</summary>${benchCases(sys)}</details>
   </section>`;
 }
@@ -1075,7 +1075,7 @@ function benchCases(sys) {
   if (!ids.length) return "";
   const any = (id) => (by.FORCLOS || by.RULES || by.NAIVE)[id];
   return `<div class="section-title"><h2>Every case</h2><span class="muted">${ids.length} cases · CRM name as the salesperson typed it</span></div>
-    <div class="scroll-x"><table class="table"><thead><tr><th>Case</th><th>CRM error</th><th>Naive alert</th><th>Rules only</th><th>FORCLOS</th></tr></thead>
+    <div class="scroll-x"><table class="table"><thead><tr><th>Case</th><th>CRM error</th><th>bodacc.fr by name</th><th>SIREN alerts</th><th>FORCLOS</th></tr></thead>
     <tbody>${ids.map((id) => `<tr><td><div class="cell-main">${esc(any(id).crm_name)}</div><div class="cell-sub mono">${esc(id)}</div></td>
       <td class="muted" style="font-size:.8rem">${FAMILY[any(id).family] || esc(any(id).family)}</td>
       <td>${benchCell(by.NAIVE?.[id])}</td><td>${benchCell(by.RULES?.[id])}</td><td>${benchCell(by.FORCLOS?.[id])}</td></tr>`).join("")}</tbody></table></div>`;
