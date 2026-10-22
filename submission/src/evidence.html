@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>FORCLOS evidence</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1920px; height: 1080px; background: #fff; }
+  body { font-family: Geist, "Helvetica Neue", sans-serif; color: #0b0b0b; letter-spacing: -0.01em; position: relative; overflow: hidden;
+         -webkit-font-smoothing: antialiased; padding: 64px 112px 0; }
+  .mono { font-family: "Geist Mono", ui-monospace, monospace; letter-spacing: 0.1em; text-transform: uppercase; }
+  .muted { color: #6b6b68; }
+  .top { display: flex; justify-content: space-between; align-items: center; }
+  .brand { display: flex; align-items: center; gap: 22px; font-size: 30px; font-weight: 500; letter-spacing: -0.045em; }
+  .brand i { width: 19px; height: 19px; border-radius: 50%; background: #f45c3c; box-shadow: 12px 0 0 -1px #0b0b0b; }
+  .top .mono { font-size: 16px; }
+  h1 { font-size: 56px; line-height: 1.06; font-weight: 500; letter-spacing: -0.045em; margin-top: 30px; }
+  .sub { font-size: 21px; line-height: 1.45; color: #6b6b68; margin-top: 12px; max-width: 1240px; }
+  .main { display: grid; grid-template-columns: 1052px 1fr; gap: 48px; margin-top: 30px; align-items: start; }
+  .label { font-size: 15px; color: #6b6b68; margin-bottom: 14px; }
+  .bars { display: grid; gap: 12px; }
+  .bar { display: grid; grid-template-columns: 340px 1fr 170px; align-items: center; gap: 22px; background: #f6f5f3; border-radius: 20px; padding: 16px 24px; }
+  .bar.us { background: #0b0b0b; color: #fff; }
+  .bar b { font-size: 21px; font-weight: 600; display: block; }
+  .bar small { font-size: 15px; color: #6b6b68; display: block; margin-top: 3px; }
+  .bar.us small { color: rgba(255,255,255,.62); }
+  .track { height: 12px; border-radius: 12px; background: rgba(0,0,0,.07); overflow: hidden; }
+  .bar.us .track { background: rgba(255,255,255,.12); }
+  .track span { display: block; height: 100%; border-radius: 12px; background: #c9432a; }
+  .bar.us .track span { background: #4ade80; width: 1.5%; }
+  .val { text-align: right; font-size: 36px; font-weight: 500; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+  .bar.us .val { color: #4ade80; }
+  .of { font-size: 15px; color: #6b6b68; margin-top: 10px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 22px; font-size: 18px; }
+  th { text-align: left; font-weight: 500; font-size: 14px; color: #6b6b68; padding: 0 12px 10px; border-bottom: 1px solid #e3e1dd; }
+  th.us, td.us { background: #eef6f1; }
+  th.us { color: #0b0b0b; border-radius: 12px 12px 0 0; padding-top: 10px; }
+  td { padding: 11px 12px; border-bottom: 1px solid #eceae6; font-variant-numeric: tabular-nums; }
+  td.us { font-weight: 600; }
+  tr:last-child td { border-bottom: 0; }
+  .side h2 { font-size: 15px; color: #6b6b68; margin-bottom: 14px; font-weight: 400; }
+  .case { border: 1px solid #e3e1dd; border-radius: 22px; padding: 22px 24px; }
+  .case + .case { margin-top: 16px; }
+  .case h3 { font-size: 23px; font-weight: 500; letter-spacing: -0.02em; }
+  .case p { font-size: 17px; line-height: 1.45; color: #6b6b68; margin-top: 6px; }
+  .ba { display: grid; grid-template-columns: 1fr 26px 1fr; align-items: center; gap: 12px; margin-top: 16px; }
+  .ba div { background: #f6f5f3; border-radius: 16px; padding: 14px 16px; }
+  .ba div.after { background: #eef6f1; }
+  .ba span { display: block; font-size: 14px; color: #6b6b68; }
+  .ba b { display: block; font-size: 30px; font-weight: 500; letter-spacing: -0.04em; margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .ba .after b { color: #1f9d63; }
+  .ba .bad b { color: #c9432a; }
+  .ba svg { width: 26px; height: 26px; }
+  .gain { font-size: 18px; font-weight: 600; color: #1f9d63; margin-top: 12px; }
+  .loss { font-size: 18px; font-weight: 600; color: #c9432a; margin-top: 12px; }
+  .foot { position: absolute; left: 112px; right: 112px; bottom: 34px; font-size: 15px; line-height: 1.5; color: #6b6b68; border-top: 1px solid #e3e1dd; padding-top: 14px; }
+  .foot b { color: #0b0b0b; font-weight: 500; }
+</style>
+</head>
+<body>
+  <div class="top">
+    <div class="brand"><i></i><span>forclos</span></div>
+    <div class="mono muted">Evidence it works</div>
+  </div>
+  <h1>On 50 test cases, FORCLOS missed no claim.</h1>
+  <p class="sub">The value of the claims each approach would have let slip, in cases built from real BODACC notices and register
+    records, with customer records as messy as real ones.</p>
+
+  <div class="main">
+    <div>
+      <div class="label mono">Value of claims missed · all 50 cases</div>
+      <div class="bars">
+        <div class="bar"><div><b>Searching bodacc.fr by name</b><small>Match names, count 60 days, trust invoice dates</small></div>
+          <div class="track"><span style="width:100%"></span></div><div class="val">€684,540</div></div>
+        <div class="bar"><div><b>SIREN alert services</b><small>Infogreffe, Societe.com, Creditsafe</small></div>
+          <div class="track"><span style="width:90.9%"></span></div><div class="val">€622,429</div></div>
+        <div class="bar us"><div><b>FORCLOS</b><small>The same rules, plus the agent</small></div>
+          <div class="track"><span></span></div><div class="val">€0</div></div>
+      </div>
+      <div class="of">Out of €982,335 that should have been claimed on time.</div>
+      <table>
+        <thead><tr><th style="width:38%"></th><th>bodacc.fr by name</th><th>SIREN alerts</th><th class="us">FORCLOS</th></tr></thead>
+        <tbody>
+          <tr><td>Insolvent customers found</td><td>22 of 42</td><td>20 of 42</td><td class="us">42 of 42</td></tr>
+          <tr><td>Healthy look-alikes wrongly flagged</td><td>8 of 8</td><td>0 of 8</td><td class="us">0 of 8</td></tr>
+          <tr><td>Exact legal deadline</td><td>0 of 42</td><td>20 of 42</td><td class="us">42 of 42</td></tr>
+          <tr><td>Claims missed, 20 held-out cases</td><td>€259,591</td><td>€280,976</td><td class="us">€0</td></tr>
+          <tr><td>Time and cost per case</td><td>instant</td><td>instant</td><td class="us">18 s · 19k tokens</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="side">
+      <h2 class="mono">Before and after · two live cases</h2>
+      <div class="case">
+        <h3>Villa d’Aristide</h3>
+        <p>An €18,400 invoice dated 14 Sept, after the 8 Sept judgment. The agent read delivery note BL-2026-4471: delivered 5 Sept.</p>
+        <div class="ba">
+          <div><span>Invoice-date rule</span><b>€6,820</b></div>
+          <svg viewBox="0 0 24 24"><path d="M5 12h13m-5-5 5 5-5 5" fill="none" stroke="#6b6b68" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="after"><span>FORCLOS claim</span><b>€25,220</b></div>
+        </div>
+        <div class="gain">+€18,400 back in the claim</div>
+      </div>
+      <div class="case">
+        <h3>Brasserie de Vaucroze</h3>
+        <p>Redressement published 31 Aug, converted to liquidation on 22 Oct. The deadline runs from the opening.</p>
+        <div class="ba">
+          <div class="bad"><span>60 days from latest notice</span><b>21 Dec</b></div>
+          <svg viewBox="0 0 24 24"><path d="M5 12h13m-5-5 5 5-5 5" fill="none" stroke="#6b6b68" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="after"><span>Legal deadline</span><b>2 Nov</b></div>
+        </div>
+        <div class="loss">Filing on 21 Dec: 49 days late, claim time-barred</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot"><b>Method.</b> 50 cases, fixed seed: 30 for development, 20 held out and run once. Errors injected: trade names, typos,
+    SIRENs of closed companies, healthy look-alikes, invoices dated after the judgment, redressements converted to liquidation.
+    The alternatives are modelled on how they work (an alert, no deadline or claim); Infogreffe, Societe.com and Creditsafe were not tested.
+    Recorded runs; every case on the app’s Proof page and in data/benchmark_results.json.</div>
+</body>
+</html>
