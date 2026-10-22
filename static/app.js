@@ -483,8 +483,9 @@ async function renderFeed() {
 async function renderBenchmark() {
   const rows = await api("/api/benchmark");
   if (S.route.page !== "benchmark") return;
-  const head = `<div class="page-heading"><p class="eyebrow"><span class="dot"></span>Evidence it works</p><h1>€ lost to forclusion</h1>
-    <p>What a creditor fails to claim on time: a customer missed, a deadline later than the legal one, or an invoice wrongly left out. Lower is better.</p></div>`;
+  const head = `<div class="page-heading"><p class="eyebrow"><span class="dot"></span>Evidence it works · 50-case simulation</p><h1>Value of claims missed</h1>
+    <p>Claims a creditor would not have filed on time: a customer missed, a deadline later than the legal one, or an invoice
+      wrongly left out. Built from real BODACC notices with synthetic CRM errors. Lower is better.</p></div>`;
   if (!rows.length) { $("view").innerHTML = head + '<p class="muted">No benchmark run yet: <span class="mono">python -m benchmark.run --split dev</span></p>'; return; }
   const splits = [...new Set(rows.map((r) => r.split))];
   S.benchSplit = splits.includes(S.benchSplit) ? S.benchSplit : (splits.includes("holdout") ? "holdout" : splits[0]);
@@ -500,7 +501,7 @@ async function renderBenchmark() {
         <h3>${r.system === "FORCLOS" ? "FORCLOS" : r.system.charAt(0) + r.system.slice(1).toLowerCase()}</h3>
         <p class="muted" style="font-size:.875rem;margin-top:6px;min-height:40px">${desc[r.system]}</p>
         <div class="lost num">${eur(m.eur_lost_cents)}</div>
-        <p class="muted" style="font-size:.875rem;margin-top:6px">lost of ${eur(m.truth_declare_cents)} to declare</p>
+        <p class="muted" style="font-size:.875rem;margin-top:6px">missed, of ${eur(m.truth_declare_cents)} to declare</p>
         <div class="kv">
           <span>Affected customers found</span><span class="num">${m.found} / ${m.affected}</span>
           <span>False alarms (healthy flagged)</span><span class="num">${m.false_alarms} / ${m.healthy}</span>
@@ -512,7 +513,32 @@ async function renderBenchmark() {
     <p class="muted" style="font-size:.8rem;margin-top:20px">Real BODACC notices and register records, synthetic CRM perturbations, n=${m0.n}
       (${S.benchSplit === "holdout" ? "held-out set, run once, never used to tune" : "dev set"}). Recorded live agent runs of
       <span class="mono">benchmark/run.py</span> on ${new Date(sys[0].run_at).toLocaleString("en-GB", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" })}.</p>`;
+  $("view").insertAdjacentHTML("beforeend", benchCases(sys));
   document.querySelectorAll("[data-split]").forEach((b) => b.onclick = () => { S.benchSplit = b.dataset.split; renderBenchmark(); });
+}
+
+const FAMILY = { EXACT_SIREN: "Right SIREN in the CRM", TRADE_NAME: "Trade name, no SIREN", ABBREV_TYPO: "Abbreviation or typo",
+                 STALE_SIREN: "SIREN of a ceased company", HOMONYM_HEALTHY: "Healthy look-alike", LATE_INVOICE: "Invoice dated after the judgment",
+                 CONVERSION: "RJ converted to LJ" };
+
+function benchCell(d) {
+  if (!d) return "—";
+  if (!d.affected) return d.false_alarm ? '<span class="status red">False alarm</span>' : '<span class="status green">No alert</span>';
+  if (d.lost_cents === 0) return `<span class="status green">Filed on time</span>${d.reviewed ? '<div class="cell-sub">escalated to review too</div>' : ""}`;
+  const why = !d.found ? "customer not found" : (d.deadline && d.truth_deadline && d.deadline > d.truth_deadline) ? `deadline ${short(d.deadline)}, legal ${short(d.truth_deadline)}` : "invoice left out";
+  return `<span class="status red">${eur(d.lost_cents)} missed</span><div class="cell-sub">${why}</div>`;
+}
+
+function benchCases(sys) {
+  const by = Object.fromEntries(sys.map((r) => [r.system, Object.fromEntries((r.details || []).map((d) => [d.bench_case_id, d]))]));
+  const ids = Object.keys(by.FORCLOS || by.RULES || {}).sort();
+  if (!ids.length) return "";
+  const any = (id) => (by.FORCLOS || by.RULES || by.NAIVE)[id];
+  return `<div class="section-title"><h2>Every case</h2><span class="muted">${ids.length} cases · CRM name as the salesperson typed it</span></div>
+    <div class="scroll-x"><table class="table"><thead><tr><th>Case</th><th>CRM error</th><th>Naive alert</th><th>Rules only</th><th>FORCLOS</th></tr></thead>
+    <tbody>${ids.map((id) => `<tr><td><div class="cell-main">${esc(any(id).crm_name)}</div><div class="cell-sub mono">${esc(id)}</div></td>
+      <td class="muted" style="font-size:.8rem">${FAMILY[any(id).family] || esc(any(id).family)}</td>
+      <td>${benchCell(by.NAIVE?.[id])}</td><td>${benchCell(by.RULES?.[id])}</td><td>${benchCell(by.FORCLOS?.[id])}</td></tr>`).join("")}</tbody></table></div>`;
 }
 
 // ---------------------------------------------------------------- data layer

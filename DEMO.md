@@ -36,7 +36,7 @@ Each agent run takes 20 to 30 seconds: talk over it, never wait in silence.
 | 1:45 | Same page, right column | Claim draft addressed to the mandataire (Selarlu Martin), échu / à échoir split, **Mark ready to sign**. Cash on delivery for new deliveries (never "block the customer"). Retention of title: reclaim goods by 18 Dec. If the agent flags it (it did in every rehearsal run): lawyer review, because the cessation of payments is dated a year before the opening, so payments received since then are at risk. |
 | 2:05 | **Overview** → *Brasserie de Vaucroze* | "Redressement, then liquidation published this morning. A tool that restarts a 60-day clock says 21 Dec. The law says 2 Nov: **D-11**. Filing on the naive date is 49 days too late." Point at *Conversion: does not restart the deadline*. |
 | 2:25 | **Data layer** | The Aiven story (below), in two sentences. |
-| 2:40 | **Benchmark** → *Held-out set* | "Twenty cases never used during development. FORCLOS lost €0. The rules lost €280,976, a naive alert €259,591 and raised 5 false alarms out of 5." Say n=20 and that it is a recorded run. |
+| 2:40 | **Benchmark** → *Held-out set* | "Twenty cases never used during development. FORCLOS missed no claim. Rules-only would have missed €280,976 of claims, a naive alert €259,591, with 5 false alarms out of 5." Say n=20, a simulation, recorded runs; scroll to *Every case* if asked. |
 | 2:55 | Slide | Who / why now / first users. |
 
 **If behind at 2:05:** skip the Data layer page and say its one line on the Benchmark page.
@@ -57,17 +57,20 @@ the ground truth is known. Every debtor's claim deadline is still open. Fixed se
 
 **Held-out (n=20: 15 affected, 5 healthy homonyms), run once:**
 
-| | € lost to forclusion | Affected found | False alarms | Exact deadline |
+| | Value of claims missed | Affected found | False alarms | Exact deadline |
 |---|---|---|---|---|
 | Naive BODACC alert | €259,591 | 8 / 15 | 5 / 5 | 0 / 15 |
 | Rules (exact SIREN + legal engine) | €280,976 | 6 / 15 | 0 / 5 | 6 / 15 |
 | **FORCLOS** | **€0** of €386,318 | **15 / 15** | **0 / 5** | **15 / 15** |
 
-**Dev (n=30: 27 affected, 3 healthy):** naive €424,949 lost, rules €341,453, FORCLOS €0 of €596,017;
+**Dev (n=30: 27 affected, 3 healthy):** claims missed: naive €424,949, rules €341,453, FORCLOS €0 of €596,017;
 FORCLOS 27/27 found, 27/27 exact deadlines, 0/3 false alarms.
 
-**Both splits:** FORCLOS €0 lost of €982,335 to declare, 42/42 found, 0/8 false alarms.
-Rules lose €622,429, the naive alert €684,540.
+**Both splits:** FORCLOS missed €0 of €982,335 of claims, 42/42 found, 0/8 false alarms.
+Rules-only would have missed €622,429, the naive alert €684,540.
+
+Wording: say **"value of claims missed in the simulation"**, never "money lost". A late filing loses the
+right to be paid from the procedure (unless a judge grants relief within 6 months), not necessarily the debt.
 
 **Cost:** about 19,000 tokens and a median of 17 to 19 seconds per case. 2 held-out cases were escalated
 to review, and the claim was still found and dated correctly.
@@ -79,6 +82,31 @@ to review, and the claim was still found and dated correctly.
   without any document); no benchmark case lacks documents.
 - On an opening alone, the naive alert's 60-day clock lands one or two days early (no loss, but never the
   exact date); it is the conversions that make it late.
+
+## Defending the perfect score
+
+Perfect scores attract scrutiny. Answer with method and logs, not adjectives.
+
+- **How were the 50 cases built?** `benchmark/build.py`, fixed seed. Each case starts from a real company with a
+  real opening judgment in the BODACC (last 45 days, legal persons, deadline still open) and its real register
+  record. We then degrade the CRM side the way sales teams do: trade name instead of legal name, abbreviation or
+  typo, the SIREN of a ceased company, a healthy company sharing the debtor's name, an invoice dated after the
+  judgment for a delivery made before, an RJ converted to LJ. Because we create the error, the ground truth is
+  known: the right SIREN, whether the customer is affected, the legal deadline, the amount to declare.
+- **Why do the baselines miss so much?** Each family breaks one assumption. No SIREN or a stale one: exact
+  matching finds nothing, so the whole claim is missed. Trade names: name matching finds nothing. Healthy
+  look-alikes: name matching raises a false alarm. Conversions: a 60-day clock restarted at the latest notice
+  files too late. Invoice dates: the invoice after the judgment is left out of the claim. The rules baseline is
+  FORCLOS without the agent: same legal engine, so the gap is the agent.
+- **Were the 20 held-out cases unseen?** The split was fixed before any run; held-out was run once, after the
+  dev runs, and nothing was tuned on it. Be honest about the two changes made during development: the dataset
+  was rebuilt once to keep only cases whose deadline was still open (some conversions had deadlines already
+  past, which no system can meet), and one prompt rule was added for invoices with no documents.
+- **Can we inspect or reproduce it?** Yes. The Benchmark page lists every case and every system's result. In the
+  repo: `data/bench_cases.json` (cases and ground truth), `data/benchmark_results.json` (per-case results of the
+  recorded runs), and `python -m benchmark.run --split dev` reruns it (about 5 minutes, live model calls).
+- **Isn't it too easy?** The errors are synthetic and one at a time; real CRMs combine them. That is why the
+  pilot starts from a real receivables export, and why FORCLOS escalates instead of guessing (2 held-out cases).
 
 ## The Aiven data story
 
@@ -102,6 +130,9 @@ Dockerfile, with the database injected through a service integration (no passwor
 ## The slide
 
 Slide: https://claude.ai/artifact/GjF51Jfgopp5M2ZjixvuB9 (present full screen; export to PDF or PPTX from its menu).
+It stands alone if the jury only sees the slide: headline, what the agent does on every notice, the benchmark
+(value of claims missed), who / why now / first users, and the live link. The 45-second talk track is in its
+speaker notes.
 
 **Who:** French B2B SMEs selling on credit with no credit manager: food-service wholesalers, building
 suppliers, B2B services. One missed claim can be a month of margin.
