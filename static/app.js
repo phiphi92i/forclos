@@ -510,7 +510,8 @@ async function renderBenchmark() {
           <span>Median time per case</span><span class="num">${m.median_seconds ? m.median_seconds.toFixed(1) + " s" : "instant"}</span>
         </div></div>`; }).join("")}</div>
     <p class="muted" style="font-size:.8rem;margin-top:20px">Real BODACC notices and register records, synthetic CRM perturbations, n=${m0.n}
-      (${S.benchSplit === "holdout" ? "held-out set, run once" : "dev set"}). Run ${new Date(sys[0].run_at).toLocaleString("en-GB")}.</p>`;
+      (${S.benchSplit === "holdout" ? "held-out set, run once, never used to tune" : "dev set"}). Recorded live agent runs of
+      <span class="mono">benchmark/run.py</span> on ${new Date(sys[0].run_at).toLocaleString("en-GB", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" })}.</p>`;
   document.querySelectorAll("[data-split]").forEach((b) => b.onclick = () => { S.benchSplit = b.dataset.split; renderBenchmark(); });
 }
 

@@ -8,8 +8,7 @@ from app.cases import match_customers, today
 from app.db import Jsonb, transaction
 
 # Raw fields kept per notice: enough to re-parse, without the bulky unused sections.
-RAW_FIELDS = ("id", "dateparution", "familleavis", "typeavis", "parutionavisprecedent", "numerodepartement",
-              "tribunal", "commercant", "ville", "cp", "registre", "listepersonnes", "jugement", "url_complete")
+RAW_FIELDS = bodacc.EXPORT_FIELDS
 EXPORT_THRESHOLD_DAYS = 3
 BATCH = 500
 

@@ -9,7 +9,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
-from app import db, scheduler
+from app import bootstrap, db, scheduler
 from app.runs import RunLimitError
 from app.routes_cases import router as cases_router
 from app.routes_data import router as data_router
@@ -23,6 +23,7 @@ log = logging.getLogger("forclos")
 async def lifespan(_: FastAPI):
     try:
         db.init_schema()
+        bootstrap.start()
         scheduler.start()
     except Exception:  # the page and /api/health still come up and report the DB error
         log.exception("schema init failed")

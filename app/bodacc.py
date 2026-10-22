@@ -17,6 +17,8 @@ from app.legal import EventKind, Procedure, _norm, classify_judgment
 
 BASE = "https://bodacc-datadila.opendatasoft.com/api/explore/v2.1/catalog/datasets/annonces-commerciales"
 TIMEOUT = 30
+EXPORT_FIELDS = ("id", "dateparution", "familleavis", "typeavis", "parutionavisprecedent", "numerodepartement",
+                 "tribunal", "commercant", "ville", "cp", "registre", "listepersonnes", "jugement", "url_complete")
 
 LEGAL_FORMS = r"\b(SAS|SASU|SARL|EURL|SA|SCI|SNC|SCOP|SELARL|SELAS|SCEA|EARL|GAEC|SCA)\b"
 _MONTHS = {"janvier": 1, "fevrier": 2, "février": 2, "mars": 3, "avril": 4, "mai": 5, "juin": 6, "juillet": 7,
@@ -182,7 +184,7 @@ def export_collective(since: date, until: date | None = None) -> list[dict]:
     where = f'familleavis="collective" AND dateparution>=date\'{since.isoformat()}\''
     if until:
         where += f" AND dateparution<=date'{until.isoformat()}'"
-    r = httpx.get(f"{BASE}/exports/json", params={"where": where}, timeout=180)
+    r = httpx.get(f"{BASE}/exports/json", params={"where": where, "select": ",".join(EXPORT_FIELDS)}, timeout=180)
     r.raise_for_status()
     return r.json()
 

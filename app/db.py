@@ -6,6 +6,7 @@ import atexit
 import os
 from contextlib import contextmanager
 from pathlib import Path
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 from dotenv import load_dotenv
 from psycopg.rows import dict_row
@@ -16,6 +17,7 @@ load_dotenv()
 
 SCHEMA = Path(__file__).resolve().parents[1] / "db" / "schema.sql"
 _pool: ConnectionPool | None = None
+NON_LIBPQ_PARAMS = {"uselibpqcompat"}
 
 __all__ = ["Jsonb", "execute", "init_schema", "pool", "query", "query_one", "transaction"]
 
@@ -26,10 +28,18 @@ def pool() -> ConnectionPool:
         url = os.environ.get("DATABASE_URL")
         if not url:
             raise RuntimeError("DATABASE_URL is not set")
-        _pool = ConnectionPool(url, min_size=1, max_size=int(os.getenv("DB_POOL_MAX", "12")),
+        _pool = ConnectionPool(libpq_url(url), min_size=1, max_size=int(os.getenv("DB_POOL_MAX", "12")),
                                kwargs={"row_factory": dict_row, "autocommit": True}, open=True)
         atexit.register(_pool.close)
     return _pool
+
+
+def libpq_url(url: str) -> str:
+    """Aiven Runtime may append driver-specific parameters (e.g. uselibpqcompat=true for node-postgres)
+    that libpq rejects; keep only the query parameters libpq understands."""
+    parts = urlsplit(url)
+    query = [(k, v) for k, v in parse_qsl(parts.query) if k not in NON_LIBPQ_PARAMS]
+    return urlunsplit(parts._replace(query=urlencode(query)))
 
 
 def init_schema() -> None:
