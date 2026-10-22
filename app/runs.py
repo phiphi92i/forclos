@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import logging
+import os
 import threading
 import uuid
 
@@ -11,7 +12,12 @@ from app.tools import RunContext, _dumps, make_handlers
 
 log = logging.getLogger("forclos.runs")
 MAX_CONCURRENT_RUNS = 6
+MAX_RUNS_PER_10_MIN = int(os.getenv("FORCLOS_MAX_RUNS_PER_10_MIN", "40"))  # the URL is public; runs cost tokens
 _slots = threading.Semaphore(MAX_CONCURRENT_RUNS)
+
+
+class RunLimitError(RuntimeError):
+    pass
 
 
 def _on_step(run_id: str):
@@ -50,6 +56,10 @@ def start_run(kind: str, task: str, case_id: int | None = None, customer_id: int
     """kind: RESOLVE_IDENTITY | INVESTIGATE_CASE. Returns the run id (or the result when wait=True)."""
     ctx = RunContext(run_id=str(uuid.uuid4()), case_id=case_id, customer_id=customer_id)
     with transaction() as conn:
+        recent = conn.execute("select count(*) as n from agent_runs where started_at > now() - interval '10 minutes'"
+                              ).fetchone()["n"]
+        if not wait and recent >= MAX_RUNS_PER_10_MIN:
+            raise RunLimitError("Too many agent runs in the last 10 minutes. Try again shortly.")
         conn.execute("insert into agent_runs (id, case_id, customer_id, task, model) values (%s, %s, %s, %s, %s)",
                      (ctx.run_id, case_id, customer_id, kind, agent.MODEL))
         if case_id:

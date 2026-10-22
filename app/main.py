@@ -5,11 +5,12 @@ import logging
 from contextlib import asynccontextmanager
 from pathlib import Path
 
-from fastapi import FastAPI
-from fastapi.responses import FileResponse
+from fastapi import FastAPI, Request
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 
 from app import db
+from app.runs import RunLimitError
 from app.routes_cases import router as cases_router
 from app.routes_data import router as data_router
 
@@ -29,6 +30,13 @@ async def lifespan(_: FastAPI):
 
 app = FastAPI(title="FORCLOS", lifespan=lifespan)
 app.include_router(data_router)
+
+
+@app.exception_handler(RunLimitError)
+def run_limit(_: Request, exc: RunLimitError) -> JSONResponse:
+    return JSONResponse({"detail": str(exc)}, status_code=429)
+
+
 app.include_router(cases_router)
 
 
