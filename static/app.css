@@ -603,3 +603,16 @@ mark { background: #ffe58a; color: inherit; border-radius: 4px; padding: 1px 3px
   .hbar { grid-template-columns: 84px minmax(0, 1fr) 108px; gap: 12px; } .hbar-value { font-size: 1.2rem; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* ---------------------------------------------------------------- import drop zone */
+.dropzone { border: 1.5px dashed var(--line-strong); border-radius: var(--radius-panel); padding: var(--space-4);
+            background: var(--panel); transition: border-color 0.16s, background 0.16s; }
+.dropzone.over { border-color: var(--accent); background: var(--accent-soft); }
+.drop-hint { display: flex; align-items: center; gap: var(--space-3); padding: var(--space-2) var(--space-1) var(--space-4); flex-wrap: wrap; }
+.drop-hint .ico { width: 26px; height: 26px; flex: none; }
+.drop-hint b { display: block; font-weight: 500; }
+.drop-hint .muted { font-size: var(--text-sm); }
+.drop-pick { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.drop-file { margin-left: auto; font-family: var(--font-mono); font-size: var(--text-xs); background: var(--panel-2);
+             border-radius: 999px; padding: 4px 12px; }
+.dropzone textarea { width: 100%; font-size: .8rem; border-radius: var(--radius-field); }

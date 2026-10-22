@@ -1137,11 +1137,14 @@ async function renderImport() {
       <p>Export your aged receivables (balance âgée clients) as CSV. FORCLOS checks every customer today and keeps watching every day after.</p></div>
     <div class="two-col">
       <section>
-        <label class="field" style="margin-top:0"><span>CSV, comma or semicolon separated. French headers work too (client, code postal, n° facture, échéance, montant, réglé).</span>
-          <textarea id="csv" rows="12" class="mono" style="font-size:.8rem"></textarea></label>
+        <div class="dropzone" id="drop">
+          <div class="drop-hint">${ico("doc")}<div><b>Drop your CSV here</b>
+            <span class="muted">or <label class="drop-pick">choose a file<input type="file" id="csv-file" accept=".csv,.txt,text/csv" hidden></label>, or paste it below</span></div>
+            <span class="drop-file" id="drop-file" hidden></span></div>
+          <textarea id="csv" rows="11" class="mono" spellcheck="false" placeholder="client;siren;date facture;montant;date livraison&#10;Le Lunch Lib;;28/08/2026;4280,00;27/08/2026"></textarea>
+        </div>
         <div class="button-row" style="margin-top:14px">
           <button class="button primary" id="btn-import">Import and check</button>
-          <label class="button soft" style="cursor:pointer">Choose a file<input type="file" id="csv-file" accept=".csv,text/csv" hidden></label>
           <button class="button" id="btn-sample">Use the sample</button>
         </div>
         <div id="import-result"></div>
@@ -1155,22 +1158,56 @@ async function renderImport() {
           <li><b>Cases.</b> Every match opens a case: deadline, claim, protective actions, for your sign-off.</li>
           <li><b>Every day after.</b> The BODACC is synced every ${S.dash?.sync_every_minutes || 30} min; new notices trigger the agent.</li>
         </ol>
-        <p class="muted" style="font-size:.8rem;margin-top:12px">Columns: customer, siren (optional), postal_code, city, invoice_number, invoice_date, due_date, amount, paid.</p>
+        <p class="muted" style="font-size:.8rem;margin-top:12px">Any column names, English or French, in any order. Only the customer
+          (a name or a SIREN) is required. Delivery dates, when present, become evidence the agent uses to date each claim.</p>
       </aside>
     </div></section>`;
-  $("btn-sample").onclick = () => { $("csv").value = SAMPLE_CSV; };
-  $("csv-file").onchange = async (e) => { const f = e.target.files[0]; if (f) $("csv").value = await f.text(); };
+
+  const drop = $("drop"), fileTag = $("drop-file");
+  const load = async (file) => {
+    if (!file) return;
+    if (/\.(xlsx?|ods|numbers)$/i.test(file.name)) {
+      toast("That is a spreadsheet file. Save it as CSV first (File › Save as › CSV), then drop the .csv.");
+      return;
+    }
+    const bytes = await file.arrayBuffer();
+    let text = new TextDecoder("utf-8").decode(bytes);
+    if (text.includes("�")) text = new TextDecoder("windows-1252").decode(bytes);  // Excel's French CSVs
+    $("csv").value = text;
+    const lines = text.split(/\r?\n/).filter((l) => l.trim()).length;
+    fileTag.textContent = `${file.name} · ${Math.max(0, lines - 1)} row${lines === 2 ? "" : "s"}`;
+    fileTag.hidden = false;
+    $("import-result").innerHTML = "";
+  };
+  let depth = 0;
+  const onPage = () => S.route.page === "import";
+  window.ondragenter = (e) => { if (!onPage()) return; e.preventDefault(); depth++; drop.classList.add("over"); };
+  window.ondragleave = () => { if (!onPage()) return; depth = Math.max(0, depth - 1); if (!depth) drop.classList.remove("over"); };
+  window.ondragover = (e) => { if (onPage()) e.preventDefault(); };
+  window.ondrop = (e) => {
+    if (!onPage()) return;
+    e.preventDefault(); depth = 0; drop.classList.remove("over");
+    load(e.dataTransfer?.files?.[0]);
+  };
+  $("csv-file").onchange = (e) => load(e.target.files[0]);
+  $("btn-sample").onclick = () => { $("csv").value = SAMPLE_CSV; fileTag.textContent = "Sample · 4 rows"; fileTag.hidden = false; };
   $("btn-import").onclick = async () => {
+    if (!$("csv").value.trim()) { toast("Drop a CSV file or paste its content first."); return; }
     const b = $("btn-import"); b.disabled = true; b.textContent = "Importing…";
     try {
       const r = await post("/api/import", { csv: $("csv").value });
+      const used = Object.entries(r.columns || {}).map(([role, col]) => `${esc(col)} → ${role.replace("_", " ")}`).join(" · ");
       $("import-result").innerHTML = `<div class="callout note" style="background:var(--green-soft);color:var(--ink)">
-        <span><b>${r.customers_created} customers, ${r.invoices_created} invoices imported.</b>
+        <span><b>${r.customers_created} customer${r.customers_created === 1 ? "" : "s"}, ${r.invoices_created} invoice${r.invoices_created === 1 ? "" : "s"} imported${r.delivery_notes ? `, ${r.delivery_notes} delivery date${r.delivery_notes === 1 ? "" : "s"} kept as evidence` : ""}.</b>
         ${r.cases_opened} case${r.cases_opened === 1 ? "" : "s"} opened by exact SIREN · ${r.identity_checks_queued} identity check${r.identity_checks_queued === 1 ? "" : "s"} queued for the agent.</span>
         <a class="button small primary" href="#/agent">Watch the agent</a></div>
+        ${used ? `<p class="muted" style="font-size:.8rem;margin-top:10px">Columns used: ${used}</p>` : ""}
         ${r.errors.length ? `<div class="callout note"><span>${r.errors.map(esc).join("<br>")}</span></div>` : ""}`;
       loadDash();
-    } catch (e) { $("import-result").innerHTML = `<div class="callout danger"><span>${esc(e.message)}</span></div>`; }
+    } catch (e) {
+      const msg = e.message.replace(/^\d+: /, "").replace(/^\{"detail":"(.*)"\}$/, "$1");
+      $("import-result").innerHTML = `<div class="callout danger"><span>${esc(msg)}</span></div>`;
+    }
     b.disabled = false; b.textContent = "Import and check";
   };
 }
