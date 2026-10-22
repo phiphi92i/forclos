@@ -66,24 +66,25 @@ def fetch_recent(days: int) -> list[dict]:
             return out
 
 
-def ingest(days: int = 45) -> dict:
+def ingest(days: int = 45, trigger: str = "manual") -> dict:
     with transaction() as conn:
-        run = conn.execute("insert into ingest_runs (since) values (%s) returning id",
-                           (today() - timedelta(days=days),)).fetchone()
+        run = conn.execute("insert into ingest_runs (since, trigger) values (%s, %s) returning id",
+                           (today() - timedelta(days=days), trigger)).fetchone()
     try:
         records = fetch_recent(days)
         with transaction() as conn:
             inserted, updated = upsert_records(conn, records)
-            new_cases = match_customers(conn)
+            new_case_ids = match_customers(conn)
     except Exception as e:
         with transaction() as conn:
             conn.execute("update ingest_runs set finished_at = now(), error = %s where id = %s",
                          (f"{type(e).__name__}: {e}"[:500], run["id"]))
         raise
     with transaction() as conn:
-        conn.execute("update ingest_runs set finished_at = now(), fetched = %s, inserted = %s, updated = %s "
-                     "where id = %s", (len(records), inserted, updated, run["id"]))
-    return {"fetched": len(records), "inserted": inserted, "updated": updated, "new_cases": new_cases}
+        conn.execute("update ingest_runs set finished_at = now(), fetched = %s, inserted = %s, updated = %s, "
+                     "new_cases = %s where id = %s", (len(records), inserted, updated, len(new_case_ids), run["id"]))
+    return {"fetched": len(records), "inserted": inserted, "updated": updated, "new_cases": len(new_case_ids),
+            "new_case_ids": new_case_ids, "ingest_run_id": run["id"]}
 
 
 def store_history(conn, siren: str) -> list[dict]:

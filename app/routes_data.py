@@ -7,7 +7,7 @@ from pydantic import BaseModel, Field
 from app import db
 from app.cases import CASE_KINDS, today
 from app.demo import load_seed
-from app.ingest import ingest
+from app.scheduler import SYNC_MINUTES, sync
 
 router = APIRouter(prefix="/api")
 
@@ -19,7 +19,7 @@ class IngestIn(BaseModel):
 @router.post("/ingest")
 def post_ingest(body: IngestIn) -> dict:
     try:
-        return ingest(body.days)
+        return sync(trigger="manual", days=body.days)
     except Exception as e:
         raise HTTPException(502, f"BODACC ingestion failed: {type(e).__name__}") from e
 
@@ -67,7 +67,12 @@ def dashboard() -> dict:
                   (select coalesce(sum(amount_cents - paid_cents), 0) from invoices
                    where customer_id = cu.id and amount_cents > paid_cents) as outstanding_cents
            from customers cu where cu.dataset = 'demo' order by cu.id""")
+    last_sync = db.query_one(
+        """select finished_at, trigger, inserted, new_cases, investigations from ingest_runs
+           where finished_at is not null and error is null order by id desc limit 1""")
     return {
+        "last_sync": last_sync, "sync_every_minutes": SYNC_MINUTES,
+        "latest_notice": db.query_one("select max(date_parution) as d from bodacc_notices")["d"],
         "exposure_cents": sum(c["exposure_cents"] for c in live),
         "declare_cents": sum(c["declare_cents"] for c in live),
         "customers_at_risk": len({c["customer"]["id"] for c in live}),
@@ -92,3 +97,36 @@ def benchmark() -> list[dict]:
     return db.query(
         """select distinct on (split, system) id, run_at, split, system, metrics, details
            from benchmark_runs order by split, system, id desc""")
+
+
+@router.get("/data")
+def data_layer() -> dict:
+    """What the agent's data is, where it lives in Postgres, and how fresh it is."""
+    q1 = db.query_one
+    return {
+        "database": q1("select split_part(version(), ' on ', 1) as engine, "
+                       "pg_size_pretty(pg_database_size(current_database())) as size"),
+        "bodacc": q1("""select count(*) as rows, max(date_parution) as latest_publication,
+                          count(*) filter (where event_kind = any(%s)) as procedure_notices,
+                          count(distinct siren) as companies from bodacc_notices""", (list(CASE_KINDS),)),
+        "register": q1("""select count(*) as rows, min(fetched_at) as oldest, max(fetched_at) as newest,
+                            count(*) filter (where fetched_at < now() - interval '7 days') as stale
+                          from company_cache"""),
+        "ledger": q1("""select (select count(*) from customers where dataset = 'demo') as customers,
+                          (select count(*) from invoices i join customers c on c.id = i.customer_id
+                           where c.dataset = 'demo') as invoices,
+                          (select count(*) from documents d join customers c on c.id = d.customer_id
+                           where c.dataset = 'demo') as documents"""),
+        "memory": q1("""select (select count(*) from cases) as cases, (select count(*) from case_events) as case_events,
+                          (select count(*) from invoice_classifications) as decisions,
+                          (select count(*) from invoice_classifications where decided_by = 'AGENT') as agent_decisions,
+                          (select count(*) from actions) as actions"""),
+        "agent": q1("""select count(*) as runs, coalesce(sum(input_tokens + output_tokens), 0) as tokens,
+                         (select count(*) from agent_steps) as steps,
+                         percentile_cont(0.5) within group (order by extract(epoch from finished_at - started_at))
+                           as median_seconds
+                       from agent_runs where finished_at is not null"""),
+        "syncs": db.query("""select id, trigger, started_at, finished_at, fetched, inserted, updated, new_cases,
+                               investigations, error from ingest_runs order by id desc limit 8"""),
+        "sync_every_minutes": SYNC_MINUTES,
+    }

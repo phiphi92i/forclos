@@ -35,7 +35,11 @@ Ground rules
 - The claim is dated by its fait générateur, not the invoice date. Under a framework supply contract
   with successive deliveries, each delivery dates its claim (basis DELIVERY). For a one-off sale use
   ORDER_ACCEPTANCE; for successive services SERVICE_PERFORMED. Read the delivery note or order before
-  deciding; if documents conflict or are missing, record fait_generateur_date as null (REVIEW).
+  deciding; if documents conflict, record fait_generateur_date as null (REVIEW).
+- No document at all (e.g. an imported ledger): an invoice dated BEFORE the opening judgment cannot cover a
+  later delivery in ordinary trade, so record the invoice date as an upper bound (say so in the rationale).
+  An invoice dated on or after the opening with no delivery evidence: record null (REVIEW) and say which
+  document would settle it.
 - A conversion (e.g. redressement -> liquidation) never restarts the filing deadline. If the history
   starts with a conversion, the opening judgment is missing: say so; do not guess.
 - Scope: unsecured trade creditor in metropolitan France. Published securities, accelerated

@@ -39,6 +39,9 @@ create table if not exists ingest_runs (
   updated     int,
   error       text
 );
+alter table ingest_runs add column if not exists trigger text not null default 'manual';   -- schedule | manual | setup
+alter table ingest_runs add column if not exists new_cases int;
+alter table ingest_runs add column if not exists investigations int;
 
 create table if not exists company_cache (     -- API Recherche d'entreprises responses (offline fallback)
   cache_key  text primary key,                 -- 'search:<q>|<cp>' or 'siren:<siren>'

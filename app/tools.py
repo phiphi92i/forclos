@@ -17,6 +17,7 @@ from app.ingest import store_history
 TEXT_LIMIT = 1500
 NOTICE_TEXT_LIMIT = 600
 SOLE_TRADER = "1000"
+CACHE_TTL_DAYS = 7
 
 CREDITOR = {
     "name": "Maison Verdier Distribution",
@@ -94,17 +95,26 @@ def read_document(document_id: int) -> dict:
 
 # ---------------------------------------------------------------- company register (cached)
 
-def _cached(key: str, fetch: Callable[[], object]):
+def _cached(key: str, fetch: Callable[[], object]) -> tuple[object, str]:
+    """Register data goes stale (companies cease, move, rename): cached for CACHE_TTL_DAYS, then refetched.
+    If the live API fails, the stale copy is used and labelled as such. Returns (payload, source)."""
     with transaction() as conn:
-        row = conn.execute("select payload from company_cache where cache_key = %s", (key,)).fetchone()
-    if row:
-        return row["payload"]
-    payload = fetch()
+        row = conn.execute("select payload, fetched_at, now() - fetched_at < make_interval(days => %s) as fresh "
+                           "from company_cache where cache_key = %s", (CACHE_TTL_DAYS, key)).fetchone()
+    if row and row["fresh"]:
+        return row["payload"], f"register cache, fetched {row['fetched_at']:%Y-%m-%d}"
+    try:
+        payload = fetch()
+    except Exception as e:
+        if row:
+            return row["payload"], (f"STALE register cache from {row['fetched_at']:%Y-%m-%d} "
+                                    f"(live API failed: {type(e).__name__}); re-check before relying on status")
+        raise
     with transaction() as conn:
         conn.execute("""insert into company_cache (cache_key, payload) values (%s, %s)
                         on conflict (cache_key) do update set payload = excluded.payload, fetched_at = now()""",
                      (key, Jsonb(payload)))
-    return payload
+    return payload, "register API, live"
 
 
 def search_company(query: str, postal_code: str | None = None) -> dict:
@@ -112,16 +122,18 @@ def search_company(query: str, postal_code: str | None = None) -> dict:
     if not q:
         raise ToolError("query is empty")
     cp = (postal_code or "").strip() or None
-    results = _cached(f"search:{q.upper()}|{cp or ''}", lambda: sirene.search_company(q, cp))
+    results, source = _cached(f"search:{q.upper()}|{cp or ''}", lambda: sirene.search_company(q, cp))
     results = [r for r in results if r.get("nature_juridique") != SOLE_TRADER]
-    return {"query": q, "postal_code": cp, "results": results,
-            "note": "Sole traders (nature juridique 1000) are excluded." if results is not None else None}
+    return {"query": q, "postal_code": cp, "source": source, "results": results,
+            "note": "Sole traders (nature juridique 1000) are excluded."}
 
 
 def get_company(siren: str) -> dict:
     s = _siren(siren)
-    company = _cached(f"siren:{s}", lambda: sirene.get_company(s))
-    return {"company": company} if company else {"company": None, "note": f"No register record for {s}."}
+    company, source = _cached(f"siren:{s}", lambda: sirene.get_company(s))
+    if not company:
+        return {"company": None, "source": source, "note": f"No register record for {s}."}
+    return {"company": company, "source": source}
 
 
 # ---------------------------------------------------------------- BODACC history

@@ -1,0 +1,3121 @@
+{
+ "seed": 20261022,
+ "built_on": "2026-10-22",
+ "counts": {
+  "EXACT_SIREN": 6,
+  "TRADE_NAME": 8,
+  "ABBREV_TYPO": 8,
+  "STALE_SIREN": 6,
+  "HOMONYM_HEALTHY": 8,
+  "LATE_INVOICE": 8,
+  "CONVERSION": 6
+ },
+ "cases": [
+  {
+   "bench_case_id": "B007",
+   "family": "HOMONYM_HEALTHY",
+   "crm_name": "Royal Food",
+   "crm_siren": null,
+   "postal_code": "77600",
+   "city": "CHANTELOUP-EN-BRIE",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-95119",
+     "invoice_date": "2026-07-28",
+     "due_date": "2026-08-27",
+     "amount_cents": 1329800,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-21329",
+     "invoice_date": "2026-08-23",
+     "due_date": "2026-09-22",
+     "amount_cents": 1391500,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-07-28",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-79481\nDate de livraison : 28/07/2026\nLivré à : Royal Food, 1 RUE DES ROUGERIOTS 77600 CHANTELOUP-EN-BRIE\nFacture associée : FB-95119\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-08-23",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-92209\nDate de livraison : 23/08/2026\nLivré à : Royal Food, 1 RUE DES ROUGERIOTS 77600 CHANTELOUP-EN-BRIE\nFacture associée : FB-21329\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "941060428",
+   "truth_affected": false,
+   "truth_claim_deadline": null,
+   "truth_declare_cents": 0,
+   "debtor_siren": "952233377",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B035",
+   "family": "LATE_INVOICE",
+   "crm_name": "Oxylium Nord",
+   "crm_siren": "890167851",
+   "postal_code": "59123",
+   "city": "BRAY-DUNES",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-40943",
+     "invoice_date": "2026-08-27",
+     "due_date": "2026-09-26",
+     "amount_cents": 323600,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-69811",
+     "invoice_date": "2026-09-25",
+     "due_date": "2026-10-25",
+     "amount_cents": 791700,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-62671",
+     "invoice_date": "2026-10-10",
+     "due_date": "2026-11-09",
+     "amount_cents": 478400,
+     "contract": "k"
+    },
+    {
+     "key": "i3",
+     "number": "FB-29058",
+     "invoice_date": "2026-10-10",
+     "due_date": "2026-11-09",
+     "amount_cents": 1682700,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-27",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-70640\nDate de livraison : 27/08/2026\nLivré à : Oxylium Nord, 232 AVENUE CHARLES WALLYN 59123 BRAY-DUNES\nFacture associée : FB-40943\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-25",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-47982\nDate de livraison : 25/09/2026\nLivré à : Oxylium Nord, 232 AVENUE CHARLES WALLYN 59123 BRAY-DUNES\nFacture associée : FB-69811\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-10-03",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-68596\nDate de livraison : 03/10/2026\nLivré à : Oxylium Nord, 232 AVENUE CHARLES WALLYN 59123 BRAY-DUNES\nFacturation regroupée ultérieurement.\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i3",
+     "doc_date": "2026-10-09",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-28804\nDate de livraison : 09/10/2026\nLivré à : Oxylium Nord, 232 AVENUE CHARLES WALLYN 59123 BRAY-DUNES\nFacture associée : FB-29058\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "890167851",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-12-09",
+   "truth_declare_cents": 1593700,
+   "debtor_siren": "890167851",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B019",
+   "family": "TRADE_NAME",
+   "crm_name": "Blink",
+   "crm_siren": null,
+   "postal_code": "54000",
+   "city": "NANCY",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-29807",
+     "invoice_date": "2026-08-09",
+     "due_date": "2026-09-08",
+     "amount_cents": 1283300,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-70850",
+     "invoice_date": "2026-08-23",
+     "due_date": "2026-09-22",
+     "amount_cents": 593000,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-88909",
+     "invoice_date": "2026-09-17",
+     "due_date": "2026-10-17",
+     "amount_cents": 127800,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-09",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-60700\nDate de livraison : 09/08/2026\nLivré à : Blink, 10 RUE GAMBETTA 54000 NANCY\nFacture associée : FB-29807\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-08-23",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-37475\nDate de livraison : 23/08/2026\nLivré à : Blink, 10 RUE GAMBETTA 54000 NANCY\nFacture associée : FB-70850\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-09-16",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-63944\nDate de livraison : 16/09/2026\nLivré à : Blink, 10 RUE GAMBETTA 54000 NANCY\nFacture associée : FB-88909\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "922714746",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-24",
+   "truth_declare_cents": 1876300,
+   "debtor_siren": "922714746",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B006",
+   "family": "CONVERSION",
+   "crm_name": "Allyoa Nath",
+   "crm_siren": "982267551",
+   "postal_code": "22530",
+   "city": "GUERLEDAN",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-19738",
+     "invoice_date": "2026-08-23",
+     "due_date": "2026-09-22",
+     "amount_cents": 1284200,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-56752",
+     "invoice_date": "2026-09-05",
+     "due_date": "2026-10-05",
+     "amount_cents": 380300,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-23",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-57084\nDate de livraison : 23/08/2026\nLivré à : Allyoa Nath, 37 RUE DE LA RESISTANCE MUR-DE-BRETAGNE 22530 GUERLEDAN\nFacture associée : FB-19738\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-05",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-56015\nDate de livraison : 05/09/2026\nLivré à : Allyoa Nath, 37 RUE DE LA RESISTANCE MUR-DE-BRETAGNE 22530 GUERLEDAN\nFacture associée : FB-56752\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "982267551",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-30",
+   "truth_declare_cents": 1664500,
+   "debtor_siren": "982267551",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B028",
+   "family": "LATE_INVOICE",
+   "crm_name": "Balogh",
+   "crm_siren": "918170366",
+   "postal_code": "89300",
+   "city": "LOOZE",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-16955",
+     "invoice_date": "2026-08-26",
+     "due_date": "2026-09-25",
+     "amount_cents": 697500,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-77108",
+     "invoice_date": "2026-08-28",
+     "due_date": "2026-09-27",
+     "amount_cents": 1590000,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-42263",
+     "invoice_date": "2026-09-20",
+     "due_date": "2026-10-20",
+     "amount_cents": 1562200,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-26",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-43501\nDate de livraison : 26/08/2026\nLivré à : Balogh, 25 B RUE DE LA FORET 89300 LOOZE\nFacture associée : FB-16955\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-08-28",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-85943\nDate de livraison : 28/08/2026\nLivré à : Balogh, 25 B RUE DE LA FORET 89300 LOOZE\nFacture associée : FB-77108\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-09-13",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-62152\nDate de livraison : 13/09/2026\nLivré à : Balogh, 25 B RUE DE LA FORET 89300 LOOZE\nFacturation regroupée ultérieurement.\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "918170366",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-25",
+   "truth_declare_cents": 3849700,
+   "debtor_siren": "918170366",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B011",
+   "family": "STALE_SIREN",
+   "crm_name": "Le Marche De Waziers",
+   "crm_siren": "414734335",
+   "postal_code": "59119",
+   "city": "WAZIERS",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-56378",
+     "invoice_date": "2026-08-19",
+     "due_date": "2026-09-18",
+     "amount_cents": 212600,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-35572",
+     "invoice_date": "2026-08-31",
+     "due_date": "2026-09-30",
+     "amount_cents": 1475200,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-96160",
+     "invoice_date": "2026-09-14",
+     "due_date": "2026-10-14",
+     "amount_cents": 627100,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-19",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-18996\nDate de livraison : 19/08/2026\nLivré à : Le Marche De Waziers, 1589 RUE LUCIEN MOREAU 59119 WAZIERS\nFacture associée : FB-56378\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-08-31",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-51354\nDate de livraison : 31/08/2026\nLivré à : Le Marche De Waziers, 1589 RUE LUCIEN MOREAU 59119 WAZIERS\nFacture associée : FB-35572\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-09-13",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-78543\nDate de livraison : 13/09/2026\nLivré à : Le Marche De Waziers, 1589 RUE LUCIEN MOREAU 59119 WAZIERS\nFacture associée : FB-96160\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "945320448",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-13",
+   "truth_declare_cents": 1687800,
+   "debtor_siren": "945320448",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B001",
+   "family": "CONVERSION",
+   "crm_name": "Rsv Restauration",
+   "crm_siren": "834014441",
+   "postal_code": "78000",
+   "city": "VERSAILLES",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-20023",
+     "invoice_date": "2026-08-25",
+     "due_date": "2026-09-24",
+     "amount_cents": 1121600,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-93190",
+     "invoice_date": "2026-09-16",
+     "due_date": "2026-10-16",
+     "amount_cents": 1459800,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-25",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-44850\nDate de livraison : 25/08/2026\nLivré à : Rsv Restauration, 20 RUE DU GENERAL LECLERC 78000 VERSAILLES\nFacture associée : FB-20023\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-16",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-95908\nDate de livraison : 16/09/2026\nLivré à : Rsv Restauration, 20 RUE DU GENERAL LECLERC 78000 VERSAILLES\nFacture associée : FB-93190\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "834014441",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-12-01",
+   "truth_declare_cents": 2581400,
+   "debtor_siren": "834014441",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B016",
+   "family": "TRADE_NAME",
+   "crm_name": "Ebf",
+   "crm_siren": null,
+   "postal_code": "88800",
+   "city": "VITTEL",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-65860",
+     "invoice_date": "2026-09-15",
+     "due_date": "2026-10-15",
+     "amount_cents": 819500,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-36273",
+     "invoice_date": "2026-09-24",
+     "due_date": "2026-10-24",
+     "amount_cents": 399600,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-09-15",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-18832\nDate de livraison : 15/09/2026\nLivré à : Ebf, 51 ALLEE DE LA CROISETTE 88800 VITTEL\nFacture associée : FB-65860\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-24",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-29332\nDate de livraison : 24/09/2026\nLivré à : Ebf, 51 ALLEE DE LA CROISETTE 88800 VITTEL\nFacture associée : FB-36273\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "829407337",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-12-11",
+   "truth_declare_cents": 1219100,
+   "debtor_siren": "829407337",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B030",
+   "family": "ABBREV_TYPO",
+   "crm_name": "Murs-Deo",
+   "crm_siren": null,
+   "postal_code": "37320",
+   "city": "ESVRES",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-79334",
+     "invoice_date": "2026-08-05",
+     "due_date": "2026-09-04",
+     "amount_cents": 2070800,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-36263",
+     "invoice_date": "2026-08-23",
+     "due_date": "2026-09-22",
+     "amount_cents": 130500,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-05",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-51384\nDate de livraison : 05/08/2026\nLivré à : Murs-Deo, 6 ALLEE ROLLAND PILAIN 37320 ESVRES\nFacture associée : FB-79334\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-08-23",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-22479\nDate de livraison : 23/08/2026\nLivré à : Murs-Deo, 6 ALLEE ROLLAND PILAIN 37320 ESVRES\nFacture associée : FB-36263\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "420441859",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-17",
+   "truth_declare_cents": 2201300,
+   "debtor_siren": "420441859",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B004",
+   "family": "CONVERSION",
+   "crm_name": "La Gloriette (La Gloriette)",
+   "crm_siren": "911653848",
+   "postal_code": "21000",
+   "city": "DIJON",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-24443",
+     "invoice_date": "2026-07-22",
+     "due_date": "2026-08-21",
+     "amount_cents": 266900,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-53170",
+     "invoice_date": "2026-08-26",
+     "due_date": "2026-09-25",
+     "amount_cents": 657000,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-14833",
+     "invoice_date": "2026-09-09",
+     "due_date": "2026-10-09",
+     "amount_cents": 1798400,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-07-22",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-30740\nDate de livraison : 22/07/2026\nLivré à : La Gloriette (La Gloriette), 12 PARVIS DE L'UNESCO 21000 DIJON\nFacture associée : FB-24443\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-08-26",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-49505\nDate de livraison : 26/08/2026\nLivré à : La Gloriette (La Gloriette), 12 PARVIS DE L'UNESCO 21000 DIJON\nFacture associée : FB-53170\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-09-08",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-62359\nDate de livraison : 08/09/2026\nLivré à : La Gloriette (La Gloriette), 12 PARVIS DE L'UNESCO 21000 DIJON\nFacture associée : FB-14833\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "911653848",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-09",
+   "truth_declare_cents": 923900,
+   "debtor_siren": "911653848",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B042",
+   "family": "TRADE_NAME",
+   "crm_name": "Troc.Com",
+   "crm_siren": null,
+   "postal_code": "14650",
+   "city": "CARPIQUET",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-96117",
+     "invoice_date": "2026-08-19",
+     "due_date": "2026-09-18",
+     "amount_cents": 1144700,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-16724",
+     "invoice_date": "2026-09-02",
+     "due_date": "2026-10-02",
+     "amount_cents": 140200,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-19",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-42967\nDate de livraison : 19/08/2026\nLivré à : Troc.Com, 6 RUE DE BELLEVUE 14650 CARPIQUET\nFacture associée : FB-96117\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-02",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-48461\nDate de livraison : 02/09/2026\nLivré à : Troc.Com, 6 RUE DE BELLEVUE 14650 CARPIQUET\nFacture associée : FB-16724\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "499744159",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-16",
+   "truth_declare_cents": 1284900,
+   "debtor_siren": "499744159",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B026",
+   "family": "HOMONYM_HEALTHY",
+   "crm_name": "H Consult",
+   "crm_siren": null,
+   "postal_code": "21510",
+   "city": "MAUVILLY",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-94819",
+     "invoice_date": "2026-07-30",
+     "due_date": "2026-08-29",
+     "amount_cents": 898400,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-30685",
+     "invoice_date": "2026-08-26",
+     "due_date": "2026-09-25",
+     "amount_cents": 793000,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-15874",
+     "invoice_date": "2026-09-16",
+     "due_date": "2026-10-16",
+     "amount_cents": 1623100,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-07-30",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-68242\nDate de livraison : 30/07/2026\nLivré à : H Consult, 2 RUE DU CHATEAU 21510 MAUVILLY\nFacture associée : FB-94819\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-08-26",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-18665\nDate de livraison : 26/08/2026\nLivré à : H Consult, 2 RUE DU CHATEAU 21510 MAUVILLY\nFacture associée : FB-30685\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-09-15",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-84995\nDate de livraison : 15/09/2026\nLivré à : H Consult, 2 RUE DU CHATEAU 21510 MAUVILLY\nFacture associée : FB-15874\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "808606883",
+   "truth_affected": false,
+   "truth_claim_deadline": null,
+   "truth_declare_cents": 0,
+   "debtor_siren": "908136377",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B049",
+   "family": "EXACT_SIREN",
+   "crm_name": "Mistral Food",
+   "crm_siren": "891219719",
+   "postal_code": "28400",
+   "city": "NOGENT-LE-ROTROU",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-49235",
+     "invoice_date": "2026-09-08",
+     "due_date": "2026-10-08",
+     "amount_cents": 1475200,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-27517",
+     "invoice_date": "2026-09-17",
+     "due_date": "2026-10-17",
+     "amount_cents": 1768900,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-09-08",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-86808\nDate de livraison : 08/09/2026\nLivré à : Mistral Food, 29 RUE GIROUST 28400 NOGENT-LE-ROTROU\nFacture associée : FB-49235\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-17",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-64449\nDate de livraison : 17/09/2026\nLivré à : Mistral Food, 29 RUE GIROUST 28400 NOGENT-LE-ROTROU\nFacture associée : FB-27517\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "891219719",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-12-09",
+   "truth_declare_cents": 3244100,
+   "debtor_siren": "891219719",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B041",
+   "family": "ABBREV_TYPO",
+   "crm_name": "Champignons Du Rousisllon",
+   "crm_siren": null,
+   "postal_code": "66000",
+   "city": "PERPIGNAN",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-18304",
+     "invoice_date": "2026-08-23",
+     "due_date": "2026-09-22",
+     "amount_cents": 569700,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-82366",
+     "invoice_date": "2026-09-21",
+     "due_date": "2026-10-21",
+     "amount_cents": 221000,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-23",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-27246\nDate de livraison : 23/08/2026\nLivré à : Champignons Du Rousisllon, MARCHE SAINT CHARLES AVENUE DE LONDRES 66000 PERPIGNAN\nFacture associée : FB-18304\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-21",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-59743\nDate de livraison : 21/09/2026\nLivré à : Champignons Du Rousisllon, MARCHE SAINT CHARLES AVENUE DE LONDRES 66000 PERPIGNAN\nFacture associée : FB-82366\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "889811972",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-12-16",
+   "truth_declare_cents": 790700,
+   "debtor_siren": "889811972",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B005",
+   "family": "CONVERSION",
+   "crm_name": "Lvr Charpente (Lvr Charpente)",
+   "crm_siren": "917948002",
+   "postal_code": "84500",
+   "city": "BOLLENE",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-32856",
+     "invoice_date": "2026-08-10",
+     "due_date": "2026-09-09",
+     "amount_cents": 444700,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-16337",
+     "invoice_date": "2026-09-02",
+     "due_date": "2026-10-02",
+     "amount_cents": 493000,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-43986",
+     "invoice_date": "2026-09-25",
+     "due_date": "2026-10-25",
+     "amount_cents": 399800,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-10",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-60251\nDate de livraison : 10/08/2026\nLivré à : Lvr Charpente (Lvr Charpente), LIEU-DIT LA CROISIERE AVENUE DE LA RODE 84500 BOLLENE\nFacture associée : FB-32856\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-02",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-65463\nDate de livraison : 02/09/2026\nLivré à : Lvr Charpente (Lvr Charpente), LIEU-DIT LA CROISIERE AVENUE DE LA RODE 84500 BOLLENE\nFacture associée : FB-16337\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-09-24",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-14407\nDate de livraison : 24/09/2026\nLivré à : Lvr Charpente (Lvr Charpente), LIEU-DIT LA CROISIERE AVENUE DE LA RODE 84500 BOLLENE\nFacture associée : FB-43986\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "917948002",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-25",
+   "truth_declare_cents": 937700,
+   "debtor_siren": "917948002",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B033",
+   "family": "ABBREV_TYPO",
+   "crm_name": "Activmedia Diffsion",
+   "crm_siren": null,
+   "postal_code": "74000",
+   "city": "ANNECY",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-57063",
+     "invoice_date": "2026-08-02",
+     "due_date": "2026-09-01",
+     "amount_cents": 668300,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-58789",
+     "invoice_date": "2026-09-01",
+     "due_date": "2026-10-01",
+     "amount_cents": 1419500,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-02",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-61943\nDate de livraison : 02/08/2026\nLivré à : Activmedia Diffsion, CENTRE IDEM 74 129 AV DE GENEVE 74000 ANNECY\nFacture associée : FB-57063\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-01",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-35114\nDate de livraison : 01/09/2026\nLivré à : Activmedia Diffsion, CENTRE IDEM 74 129 AV DE GENEVE 74000 ANNECY\nFacture associée : FB-58789\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "914630785",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-18",
+   "truth_declare_cents": 2087800,
+   "debtor_siren": "914630785",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B029",
+   "family": "TRADE_NAME",
+   "crm_name": "Beubeul",
+   "crm_siren": null,
+   "postal_code": "69310",
+   "city": "OULLINS-PIERRE-BENITE",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-28679",
+     "invoice_date": "2026-08-18",
+     "due_date": "2026-09-17",
+     "amount_cents": 664800,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-55196",
+     "invoice_date": "2026-09-12",
+     "due_date": "2026-10-12",
+     "amount_cents": 2061500,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-56664",
+     "invoice_date": "2026-10-05",
+     "due_date": "2026-11-04",
+     "amount_cents": 181100,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-18",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-94151\nDate de livraison : 18/08/2026\nLivré à : Beubeul, 13 RUE PIERRE SEMARD 69310 OULLINS-PIERRE-BENITE\nFacture associée : FB-28679\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-12",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-64341\nDate de livraison : 12/09/2026\nLivré à : Beubeul, 13 RUE PIERRE SEMARD 69310 OULLINS-PIERRE-BENITE\nFacture associée : FB-55196\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-10-04",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-17581\nDate de livraison : 04/10/2026\nLivré à : Beubeul, 13 RUE PIERRE SEMARD 69310 OULLINS-PIERRE-BENITE\nFacture associée : FB-56664\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "894448687",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-12-09",
+   "truth_declare_cents": 2726300,
+   "debtor_siren": "894448687",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B013",
+   "family": "HOMONYM_HEALTHY",
+   "crm_name": "Intuition",
+   "crm_siren": null,
+   "postal_code": "97133",
+   "city": "SAINT BARTHELEMY",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-11485",
+     "invoice_date": "2026-08-25",
+     "due_date": "2026-09-24",
+     "amount_cents": 1432800,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-61572",
+     "invoice_date": "2026-09-02",
+     "due_date": "2026-10-02",
+     "amount_cents": 1738600,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-25",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-25509\nDate de livraison : 25/08/2026\nLivré à : Intuition, CHEZ LOIC LAPEZE QUARTIER DU ROY ANSE DES CAYES 97133 SAINT BARTHELEMY\nFacture associée : FB-11485\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-02",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-66083\nDate de livraison : 02/09/2026\nLivré à : Intuition, CHEZ LOIC LAPEZE QUARTIER DU ROY ANSE DES CAYES 97133 SAINT BARTHELEMY\nFacture associée : FB-61572\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "829591866",
+   "truth_affected": false,
+   "truth_claim_deadline": null,
+   "truth_declare_cents": 0,
+   "debtor_siren": "502625825",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B012",
+   "family": "LATE_INVOICE",
+   "crm_name": "Cinemaled",
+   "crm_siren": "938465689",
+   "postal_code": "84600",
+   "city": "VALREAS",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-70810",
+     "invoice_date": "2026-08-10",
+     "due_date": "2026-09-09",
+     "amount_cents": 1231900,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-46422",
+     "invoice_date": "2026-08-25",
+     "due_date": "2026-09-24",
+     "amount_cents": 273200,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-26341",
+     "invoice_date": "2026-09-08",
+     "due_date": "2026-10-08",
+     "amount_cents": 676700,
+     "contract": "k"
+    },
+    {
+     "key": "i3",
+     "number": "FB-18816",
+     "invoice_date": "2026-09-08",
+     "due_date": "2026-10-08",
+     "amount_cents": 1460200,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-10",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-15476\nDate de livraison : 10/08/2026\nLivré à : Cinemaled, CENTRE D'AFFAIRES 118 ROUTE DE BAUME 84600 VALREAS\nFacture associée : FB-70810\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-08-25",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-37348\nDate de livraison : 25/08/2026\nLivré à : Cinemaled, CENTRE D'AFFAIRES 118 ROUTE DE BAUME 84600 VALREAS\nFacture associée : FB-46422\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-08-28",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-57993\nDate de livraison : 28/08/2026\nLivré à : Cinemaled, CENTRE D'AFFAIRES 118 ROUTE DE BAUME 84600 VALREAS\nFacturation regroupée ultérieurement.\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i3",
+     "doc_date": "2026-09-07",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-71365\nDate de livraison : 07/09/2026\nLivré à : Cinemaled, CENTRE D'AFFAIRES 118 ROUTE DE BAUME 84600 VALREAS\nFacture associée : FB-18816\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "938465689",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-12",
+   "truth_declare_cents": 2181800,
+   "debtor_siren": "938465689",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B040",
+   "family": "ABBREV_TYPO",
+   "crm_name": "Seecret Quiz Et Cie",
+   "crm_siren": null,
+   "postal_code": "05000",
+   "city": "GAP",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-84098",
+     "invoice_date": "2026-08-22",
+     "due_date": "2026-09-21",
+     "amount_cents": 1858600,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-77548",
+     "invoice_date": "2026-09-15",
+     "due_date": "2026-10-15",
+     "amount_cents": 590100,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-10255",
+     "invoice_date": "2026-10-03",
+     "due_date": "2026-11-02",
+     "amount_cents": 714300,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-22",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-79087\nDate de livraison : 22/08/2026\nLivré à : Seecret Quiz Et Cie, LE KENTUCKY 70 BOULEVARD GEORGES POMPIDOU 05000 GAP\nFacture associée : FB-84098\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-15",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-14897\nDate de livraison : 15/09/2026\nLivré à : Seecret Quiz Et Cie, LE KENTUCKY 70 BOULEVARD GEORGES POMPIDOU 05000 GAP\nFacture associée : FB-77548\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-10-02",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-85576\nDate de livraison : 02/10/2026\nLivré à : Seecret Quiz Et Cie, LE KENTUCKY 70 BOULEVARD GEORGES POMPIDOU 05000 GAP\nFacture associée : FB-10255\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "945014009",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-12-02",
+   "truth_declare_cents": 2448700,
+   "debtor_siren": "945014009",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B045",
+   "family": "TRADE_NAME",
+   "crm_name": "Le Victor Hugo",
+   "crm_siren": null,
+   "postal_code": "76000",
+   "city": "ROUEN",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-83898",
+     "invoice_date": "2026-09-02",
+     "due_date": "2026-10-02",
+     "amount_cents": 1573600,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-94224",
+     "invoice_date": "2026-09-29",
+     "due_date": "2026-10-29",
+     "amount_cents": 809500,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-88098",
+     "invoice_date": "2026-10-13",
+     "due_date": "2026-11-12",
+     "amount_cents": 1299000,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-09-02",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-85968\nDate de livraison : 02/09/2026\nLivré à : Le Victor Hugo, 3 RUE ALSACE LORRAINE 76000 ROUEN\nFacture associée : FB-83898\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-29",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-23246\nDate de livraison : 29/09/2026\nLivré à : Le Victor Hugo, 3 RUE ALSACE LORRAINE 76000 ROUEN\nFacture associée : FB-94224\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-10-12",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-35170\nDate de livraison : 12/10/2026\nLivré à : Le Victor Hugo, 3 RUE ALSACE LORRAINE 76000 ROUEN\nFacture associée : FB-88098\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "804917961",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-12-11",
+   "truth_declare_cents": 2383100,
+   "debtor_siren": "804917961",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B010",
+   "family": "LATE_INVOICE",
+   "crm_name": "Home Diag 71",
+   "crm_siren": "981999360",
+   "postal_code": "71100",
+   "city": "CHALON-SUR-SAONE",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-35979",
+     "invoice_date": "2026-08-29",
+     "due_date": "2026-09-28",
+     "amount_cents": 455400,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-72293",
+     "invoice_date": "2026-09-20",
+     "due_date": "2026-10-20",
+     "amount_cents": 1882700,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-89094",
+     "invoice_date": "2026-10-11",
+     "due_date": "2026-11-10",
+     "amount_cents": 1488900,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-29",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-70693\nDate de livraison : 29/08/2026\nLivré à : Home Diag 71, 8 RUE DE DIJON 71100 CHALON-SUR-SAONE\nFacture associée : FB-35979\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-20",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-46720\nDate de livraison : 20/09/2026\nLivré à : Home Diag 71, 8 RUE DE DIJON 71100 CHALON-SUR-SAONE\nFacture associée : FB-72293\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-09-29",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-40948\nDate de livraison : 29/09/2026\nLivré à : Home Diag 71, 8 RUE DE DIJON 71100 CHALON-SUR-SAONE\nFacturation regroupée ultérieurement.\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "981999360",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-12-07",
+   "truth_declare_cents": 3827000,
+   "debtor_siren": "981999360",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B036",
+   "family": "ABBREV_TYPO",
+   "crm_name": "Bespoke By Sginature",
+   "crm_siren": null,
+   "postal_code": "67380",
+   "city": "LINGOLSHEIM",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-65970",
+     "invoice_date": "2026-08-04",
+     "due_date": "2026-09-03",
+     "amount_cents": 1758300,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-89547",
+     "invoice_date": "2026-08-30",
+     "due_date": "2026-09-29",
+     "amount_cents": 1978300,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-25098",
+     "invoice_date": "2026-09-21",
+     "due_date": "2026-10-21",
+     "amount_cents": 1418400,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-04",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-96372\nDate de livraison : 04/08/2026\nLivré à : Bespoke By Sginature, 27 RUE DES MUGUETS 67380 LINGOLSHEIM\nFacture associée : FB-65970\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-08-30",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-59429\nDate de livraison : 30/08/2026\nLivré à : Bespoke By Sginature, 27 RUE DES MUGUETS 67380 LINGOLSHEIM\nFacture associée : FB-89547\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-09-20",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-22133\nDate de livraison : 20/09/2026\nLivré à : Bespoke By Sginature, 27 RUE DES MUGUETS 67380 LINGOLSHEIM\nFacture associée : FB-25098\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "898494927",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-12-01",
+   "truth_declare_cents": 3736600,
+   "debtor_siren": "898494927",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B002",
+   "family": "CONVERSION",
+   "crm_name": "Lg Immobilier",
+   "crm_siren": "520874876",
+   "postal_code": "78780",
+   "city": "MAURECOURT",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-95816",
+     "invoice_date": "2026-08-06",
+     "due_date": "2026-09-05",
+     "amount_cents": 1965500,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-29965",
+     "invoice_date": "2026-09-01",
+     "due_date": "2026-10-01",
+     "amount_cents": 276600,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-95145",
+     "invoice_date": "2026-09-11",
+     "due_date": "2026-10-11",
+     "amount_cents": 1338500,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-06",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-78915\nDate de livraison : 06/08/2026\nLivré à : Lg Immobilier, 17 B RUE DU MARECHAL LECLERC 78780 MAURECOURT\nFacture associée : FB-95816\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-01",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-73430\nDate de livraison : 01/09/2026\nLivré à : Lg Immobilier, 17 B RUE DU MARECHAL LECLERC 78780 MAURECOURT\nFacture associée : FB-29965\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-09-10",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-59651\nDate de livraison : 10/09/2026\nLivré à : Lg Immobilier, 17 B RUE DU MARECHAL LECLERC 78780 MAURECOURT\nFacture associée : FB-95145\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "520874876",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-17",
+   "truth_declare_cents": 2242100,
+   "debtor_siren": "520874876",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B021",
+   "family": "STALE_SIREN",
+   "crm_name": "Weekks",
+   "crm_siren": "497619312",
+   "postal_code": "44000",
+   "city": "NANTES",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-35141",
+     "invoice_date": "2026-08-07",
+     "due_date": "2026-09-06",
+     "amount_cents": 2034500,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-58461",
+     "invoice_date": "2026-08-28",
+     "due_date": "2026-09-27",
+     "amount_cents": 497000,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-07",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-71485\nDate de livraison : 07/08/2026\nLivré à : Weekks, 32 RUE SCRIBE 44000 NANTES\nFacture associée : FB-35141\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-08-28",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-47357\nDate de livraison : 28/08/2026\nLivré à : Weekks, 32 RUE SCRIBE 44000 NANTES\nFacture associée : FB-58461\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "911285583",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-25",
+   "truth_declare_cents": 2531500,
+   "debtor_siren": "911285583",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B037",
+   "family": "LATE_INVOICE",
+   "crm_name": "Ottech",
+   "crm_siren": "987646874",
+   "postal_code": "51100",
+   "city": "REIMS",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-50416",
+     "invoice_date": "2026-08-13",
+     "due_date": "2026-09-12",
+     "amount_cents": 1686400,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-70969",
+     "invoice_date": "2026-08-26",
+     "due_date": "2026-09-25",
+     "amount_cents": 1512300,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-35247",
+     "invoice_date": "2026-09-16",
+     "due_date": "2026-10-16",
+     "amount_cents": 1733200,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-13",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-37799\nDate de livraison : 13/08/2026\nLivré à : Ottech, 33 RUE CERES 51100 REIMS\nFacture associée : FB-50416\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-08-26",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-48128\nDate de livraison : 26/08/2026\nLivré à : Ottech, 33 RUE CERES 51100 REIMS\nFacture associée : FB-70969\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-09-05",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-22405\nDate de livraison : 05/09/2026\nLivré à : Ottech, 33 RUE CERES 51100 REIMS\nFacturation regroupée ultérieurement.\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "987646874",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-24",
+   "truth_declare_cents": 4931900,
+   "debtor_siren": "987646874",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B044",
+   "family": "EXACT_SIREN",
+   "crm_name": "Zn Fibre",
+   "crm_siren": "878558642",
+   "postal_code": "21000",
+   "city": "DIJON",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-92266",
+     "invoice_date": "2026-08-16",
+     "due_date": "2026-09-15",
+     "amount_cents": 111900,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-12811",
+     "invoice_date": "2026-09-21",
+     "due_date": "2026-10-21",
+     "amount_cents": 918900,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-16",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-12240\nDate de livraison : 16/08/2026\nLivré à : Zn Fibre, 3 AVENUE ALBERT CAMUS 21000 DIJON\nFacture associée : FB-92266\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-21",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-27127\nDate de livraison : 21/09/2026\nLivré à : Zn Fibre, 3 AVENUE ALBERT CAMUS 21000 DIJON\nFacture associée : FB-12811\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "878558642",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-12-07",
+   "truth_declare_cents": 1030800,
+   "debtor_siren": "878558642",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B048",
+   "family": "EXACT_SIREN",
+   "crm_name": "Sasu Ben Et Fils",
+   "crm_siren": "808047443",
+   "postal_code": "66100",
+   "city": "PERPIGNAN",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-77450",
+     "invoice_date": "2026-09-13",
+     "due_date": "2026-10-13",
+     "amount_cents": 571700,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-75771",
+     "invoice_date": "2026-09-28",
+     "due_date": "2026-10-28",
+     "amount_cents": 359000,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-35922",
+     "invoice_date": "2026-10-11",
+     "due_date": "2026-11-10",
+     "amount_cents": 1220200,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-09-13",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-61754\nDate de livraison : 13/09/2026\nLivré à : Sasu Ben Et Fils, 6 RUE JULES GUESDE 66100 PERPIGNAN\nFacture associée : FB-77450\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-28",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-54206\nDate de livraison : 28/09/2026\nLivré à : Sasu Ben Et Fils, 6 RUE JULES GUESDE 66100 PERPIGNAN\nFacture associée : FB-75771\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-10-10",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-70313\nDate de livraison : 10/10/2026\nLivré à : Sasu Ben Et Fils, 6 RUE JULES GUESDE 66100 PERPIGNAN\nFacture associée : FB-35922\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "808047443",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-12-16",
+   "truth_declare_cents": 930700,
+   "debtor_siren": "808047443",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B032",
+   "family": "TRADE_NAME",
+   "crm_name": "Bar De La Jeunesse",
+   "crm_siren": null,
+   "postal_code": "44410",
+   "city": "LA CHAPELLE-DES-MARAIS",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-93592",
+     "invoice_date": "2026-08-28",
+     "due_date": "2026-09-27",
+     "amount_cents": 1806200,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-66505",
+     "invoice_date": "2026-09-13",
+     "due_date": "2026-10-13",
+     "amount_cents": 1425600,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-28",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-75906\nDate de livraison : 28/08/2026\nLivré à : Bar De La Jeunesse, 2 RUE DE PENLYS 44410 LA CHAPELLE-DES-MARAIS\nFacture associée : FB-93592\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-13",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-96205\nDate de livraison : 13/09/2026\nLivré à : Bar De La Jeunesse, 2 RUE DE PENLYS 44410 LA CHAPELLE-DES-MARAIS\nFacture associée : FB-66505\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "922100334",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-12-09",
+   "truth_declare_cents": 3231800,
+   "debtor_siren": "922100334",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B043",
+   "family": "EXACT_SIREN",
+   "crm_name": "Mog",
+   "crm_siren": "810572743",
+   "postal_code": "47300",
+   "city": "VILLENEUVE-SUR-LOT",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-34070",
+     "invoice_date": "2026-07-23",
+     "due_date": "2026-08-22",
+     "amount_cents": 1322200,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-20329",
+     "invoice_date": "2026-08-22",
+     "due_date": "2026-09-21",
+     "amount_cents": 134300,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-07-23",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-26929\nDate de livraison : 23/07/2026\nLivré à : Mog, 12 RUE SAINTE-CATHERINE 47300 VILLENEUVE-SUR-LOT\nFacture associée : FB-34070\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-08-22",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-48033\nDate de livraison : 22/08/2026\nLivré à : Mog, 12 RUE SAINTE-CATHERINE 47300 VILLENEUVE-SUR-LOT\nFacture associée : FB-20329\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "810572743",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-09",
+   "truth_declare_cents": 1456500,
+   "debtor_siren": "810572743",
+   "split": "dev"
+  },
+  {
+   "bench_case_id": "B025",
+   "family": "STALE_SIREN",
+   "crm_name": "Au Temps Qui Court",
+   "crm_siren": "824099683",
+   "postal_code": "69350",
+   "city": "LA MULATIERE",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-43279",
+     "invoice_date": "2026-08-11",
+     "due_date": "2026-09-10",
+     "amount_cents": 1481300,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-69199",
+     "invoice_date": "2026-09-12",
+     "due_date": "2026-10-12",
+     "amount_cents": 1808500,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-11",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-53148\nDate de livraison : 11/08/2026\nLivré à : Au Temps Qui Court, 1 RUE ANDRE LAFARGE 69350 LA MULATIERE\nFacture associée : FB-43279\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-12",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-11007\nDate de livraison : 12/09/2026\nLivré à : Au Temps Qui Court, 1 RUE ANDRE LAFARGE 69350 LA MULATIERE\nFacture associée : FB-69199\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "105186654",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-12-02",
+   "truth_declare_cents": 3289800,
+   "debtor_siren": "105186654",
+   "split": "holdout"
+  },
+  {
+   "bench_case_id": "B017",
+   "family": "STALE_SIREN",
+   "crm_name": "Mosbat",
+   "crm_siren": "841145816",
+   "postal_code": "78100",
+   "city": "SAINT-GERMAIN-EN-LAYE",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-84957",
+     "invoice_date": "2026-07-18",
+     "due_date": "2026-08-17",
+     "amount_cents": 1710300,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-26143",
+     "invoice_date": "2026-08-14",
+     "due_date": "2026-09-13",
+     "amount_cents": 2144000,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-42513",
+     "invoice_date": "2026-09-04",
+     "due_date": "2026-10-04",
+     "amount_cents": 2184100,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-07-18",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-63220\nDate de livraison : 18/07/2026\nLivré à : Mosbat, 9 RUE SAINT LOUIS 78100 SAINT-GERMAIN-EN-LAYE\nFacture associée : FB-84957\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-08-14",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-90192\nDate de livraison : 14/08/2026\nLivré à : Mosbat, 9 RUE SAINT LOUIS 78100 SAINT-GERMAIN-EN-LAYE\nFacture associée : FB-26143\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-09-03",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-61132\nDate de livraison : 03/09/2026\nLivré à : Mosbat, 9 RUE SAINT LOUIS 78100 SAINT-GERMAIN-EN-LAYE\nFacture associée : FB-42513\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "924777246",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-10",
+   "truth_declare_cents": 3854300,
+   "debtor_siren": "924777246",
+   "split": "holdout"
+  },
+  {
+   "bench_case_id": "B034",
+   "family": "ABBREV_TYPO",
+   "crm_name": "La Romaine",
+   "crm_siren": null,
+   "postal_code": "38140",
+   "city": "RIVES",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-93745",
+     "invoice_date": "2026-08-07",
+     "due_date": "2026-09-06",
+     "amount_cents": 1416300,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-71555",
+     "invoice_date": "2026-09-01",
+     "due_date": "2026-10-01",
+     "amount_cents": 2058000,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-07",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-89387\nDate de livraison : 07/08/2026\nLivré à : La Romaine, 213 RUE ARISTIDE BERGES 38140 RIVES\nFacture associée : FB-93745\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-01",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-68881\nDate de livraison : 01/09/2026\nLivré à : La Romaine, 213 RUE ARISTIDE BERGES 38140 RIVES\nFacture associée : FB-71555\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "387833130",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-18",
+   "truth_declare_cents": 3474300,
+   "debtor_siren": "387833130",
+   "split": "holdout"
+  },
+  {
+   "bench_case_id": "B023",
+   "family": "LATE_INVOICE",
+   "crm_name": "Naotec",
+   "crm_siren": "791356454",
+   "postal_code": "17800",
+   "city": "PONS",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-80061",
+     "invoice_date": "2026-08-09",
+     "due_date": "2026-09-08",
+     "amount_cents": 449500,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-42433",
+     "invoice_date": "2026-08-21",
+     "due_date": "2026-09-20",
+     "amount_cents": 685200,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-63134",
+     "invoice_date": "2026-09-12",
+     "due_date": "2026-10-12",
+     "amount_cents": 895000,
+     "contract": "k"
+    },
+    {
+     "key": "i3",
+     "number": "FB-53705",
+     "invoice_date": "2026-09-13",
+     "due_date": "2026-10-13",
+     "amount_cents": 1021900,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-09",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-69750\nDate de livraison : 09/08/2026\nLivré à : Naotec, LE CHAIL 17800 PONS\nFacture associée : FB-80061\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-08-21",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-88618\nDate de livraison : 21/08/2026\nLivré à : Naotec, LE CHAIL 17800 PONS\nFacture associée : FB-42433\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-09-02",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-99410\nDate de livraison : 02/09/2026\nLivré à : Naotec, LE CHAIL 17800 PONS\nFacturation regroupée ultérieurement.\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i3",
+     "doc_date": "2026-09-12",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-83936\nDate de livraison : 12/09/2026\nLivré à : Naotec, LE CHAIL 17800 PONS\nFacture associée : FB-53705\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "791356454",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-09",
+   "truth_declare_cents": 2029700,
+   "debtor_siren": "791356454",
+   "split": "holdout"
+  },
+  {
+   "bench_case_id": "B015",
+   "family": "HOMONYM_HEALTHY",
+   "crm_name": "Techni Environnement",
+   "crm_siren": null,
+   "postal_code": "13790",
+   "city": "CHATEAUNEUF-LE-ROUGE",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-89389",
+     "invoice_date": "2026-09-03",
+     "due_date": "2026-10-03",
+     "amount_cents": 594600,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-48197",
+     "invoice_date": "2026-09-11",
+     "due_date": "2026-10-11",
+     "amount_cents": 1419500,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-61446",
+     "invoice_date": "2026-10-02",
+     "due_date": "2026-11-01",
+     "amount_cents": 1671600,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-09-03",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-20957\nDate de livraison : 03/09/2026\nLivré à : Techni Environnement, LE PARC DU CHATEAU NO 38 13790 CHATEAUNEUF-LE-ROUGE\nFacture associée : FB-89389\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-11",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-56816\nDate de livraison : 11/09/2026\nLivré à : Techni Environnement, LE PARC DU CHATEAU NO 38 13790 CHATEAUNEUF-LE-ROUGE\nFacture associée : FB-48197\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-10-01",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-71431\nDate de livraison : 01/10/2026\nLivré à : Techni Environnement, LE PARC DU CHATEAU NO 38 13790 CHATEAUNEUF-LE-ROUGE\nFacture associée : FB-61446\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "517751566",
+   "truth_affected": false,
+   "truth_claim_deadline": null,
+   "truth_declare_cents": 0,
+   "debtor_siren": "900859166",
+   "split": "holdout"
+  },
+  {
+   "bench_case_id": "B008",
+   "family": "TRADE_NAME",
+   "crm_name": "L'Argentera",
+   "crm_siren": null,
+   "postal_code": "06660",
+   "city": "SAINT-ETIENNE-DE-TINEE",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-69057",
+     "invoice_date": "2026-07-30",
+     "due_date": "2026-08-29",
+     "amount_cents": 272300,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-58369",
+     "invoice_date": "2026-08-28",
+     "due_date": "2026-09-27",
+     "amount_cents": 956100,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-07-30",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-28714\nDate de livraison : 30/07/2026\nLivré à : L'Argentera, AURON AV DE MALHIRA 06660 SAINT-ETIENNE-DE-TINEE\nFacture associée : FB-69057\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-08-28",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-24281\nDate de livraison : 28/08/2026\nLivré à : L'Argentera, AURON AV DE MALHIRA 06660 SAINT-ETIENNE-DE-TINEE\nFacture associée : FB-58369\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "948894795",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-23",
+   "truth_declare_cents": 1228400,
+   "debtor_siren": "948894795",
+   "split": "holdout"
+  },
+  {
+   "bench_case_id": "B046",
+   "family": "EXACT_SIREN",
+   "crm_name": "Styl'Cuisine",
+   "crm_siren": "351699947",
+   "postal_code": "57970",
+   "city": "BASSE-HAM",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-24008",
+     "invoice_date": "2026-09-13",
+     "due_date": "2026-10-13",
+     "amount_cents": 187000,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-84680",
+     "invoice_date": "2026-09-19",
+     "due_date": "2026-10-19",
+     "amount_cents": 988500,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-09-13",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-65287\nDate de livraison : 13/09/2026\nLivré à : Styl'Cuisine, ZONE ARTISANALE 2 RUE LEON FOUCAULT 57970 BASSE-HAM\nFacture associée : FB-24008\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-19",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-13931\nDate de livraison : 19/09/2026\nLivré à : Styl'Cuisine, ZONE ARTISANALE 2 RUE LEON FOUCAULT 57970 BASSE-HAM\nFacture associée : FB-84680\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "351699947",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-12-16",
+   "truth_declare_cents": 1175500,
+   "debtor_siren": "351699947",
+   "split": "holdout"
+  },
+  {
+   "bench_case_id": "B027",
+   "family": "STALE_SIREN",
+   "crm_name": "R & G Conseils",
+   "crm_siren": "812718559",
+   "postal_code": "78121",
+   "city": "CRESPIERES",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-38273",
+     "invoice_date": "2026-07-22",
+     "due_date": "2026-08-21",
+     "amount_cents": 2028200,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-33362",
+     "invoice_date": "2026-08-24",
+     "due_date": "2026-09-23",
+     "amount_cents": 1547500,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-07-22",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-52128\nDate de livraison : 22/07/2026\nLivré à : R & G Conseils, DOMAINE DE CROIX MARIE 16 AVENUE DU LAC 78121 CRESPIERES\nFacture associée : FB-38273\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-08-24",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-78560\nDate de livraison : 24/08/2026\nLivré à : R & G Conseils, DOMAINE DE CROIX MARIE 16 AVENUE DU LAC 78121 CRESPIERES\nFacture associée : FB-33362\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "513009977",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-10",
+   "truth_declare_cents": 3575700,
+   "debtor_siren": "513009977",
+   "split": "holdout"
+  },
+  {
+   "bench_case_id": "B018",
+   "family": "LATE_INVOICE",
+   "crm_name": "Koshi Cosmetics",
+   "crm_siren": "911906279",
+   "postal_code": "06100",
+   "city": "NICE",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-99517",
+     "invoice_date": "2026-08-21",
+     "due_date": "2026-09-20",
+     "amount_cents": 1874600,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-95295",
+     "invoice_date": "2026-08-30",
+     "due_date": "2026-09-29",
+     "amount_cents": 844500,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-18214",
+     "invoice_date": "2026-09-21",
+     "due_date": "2026-10-21",
+     "amount_cents": 450400,
+     "contract": "k"
+    },
+    {
+     "key": "i3",
+     "number": "FB-76039",
+     "invoice_date": "2026-09-18",
+     "due_date": "2026-10-18",
+     "amount_cents": 1013200,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-21",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-26885\nDate de livraison : 21/08/2026\nLivré à : Koshi Cosmetics, VILLA DU RAY 17 AVENUE DU RAY 06100 NICE\nFacture associée : FB-99517\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-08-30",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-89950\nDate de livraison : 30/08/2026\nLivré à : Koshi Cosmetics, VILLA DU RAY 17 AVENUE DU RAY 06100 NICE\nFacture associée : FB-95295\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-09-09",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-68893\nDate de livraison : 09/09/2026\nLivré à : Koshi Cosmetics, VILLA DU RAY 17 AVENUE DU RAY 06100 NICE\nFacturation regroupée ultérieurement.\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i3",
+     "doc_date": "2026-09-17",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-10928\nDate de livraison : 17/09/2026\nLivré à : Koshi Cosmetics, VILLA DU RAY 17 AVENUE DU RAY 06100 NICE\nFacture associée : FB-76039\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "911906279",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-23",
+   "truth_declare_cents": 3169500,
+   "debtor_siren": "911906279",
+   "split": "holdout"
+  },
+  {
+   "bench_case_id": "B050",
+   "family": "TRADE_NAME",
+   "crm_name": "Sultan Kebap Burger",
+   "crm_siren": null,
+   "postal_code": "13015",
+   "city": "MARSEILLE",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-97528",
+     "invoice_date": "2026-08-21",
+     "due_date": "2026-09-20",
+     "amount_cents": 1876200,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-81488",
+     "invoice_date": "2026-09-06",
+     "due_date": "2026-10-06",
+     "amount_cents": 507800,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-62620",
+     "invoice_date": "2026-10-02",
+     "due_date": "2026-11-01",
+     "amount_cents": 2158800,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-21",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-21735\nDate de livraison : 21/08/2026\nLivré à : Sultan Kebap Burger, 94 AVENUE DE SAINT LOUIS 13015 MARSEILLE\nFacture associée : FB-97528\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-06",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-42102\nDate de livraison : 06/09/2026\nLivré à : Sultan Kebap Burger, 94 AVENUE DE SAINT LOUIS 13015 MARSEILLE\nFacture associée : FB-81488\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-10-01",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-46439\nDate de livraison : 01/10/2026\nLivré à : Sultan Kebap Burger, 94 AVENUE DE SAINT LOUIS 13015 MARSEILLE\nFacture associée : FB-62620\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "979839925",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-27",
+   "truth_declare_cents": 2384000,
+   "debtor_siren": "979839925",
+   "split": "holdout"
+  },
+  {
+   "bench_case_id": "B014",
+   "family": "HOMONYM_HEALTHY",
+   "crm_name": "Bersa",
+   "crm_siren": null,
+   "postal_code": "31000",
+   "city": "TOULOUSE",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-54406",
+     "invoice_date": "2026-08-22",
+     "due_date": "2026-09-21",
+     "amount_cents": 1049000,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-44544",
+     "invoice_date": "2026-09-02",
+     "due_date": "2026-10-02",
+     "amount_cents": 1601400,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-89432",
+     "invoice_date": "2026-09-20",
+     "due_date": "2026-10-20",
+     "amount_cents": 580300,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-22",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-69046\nDate de livraison : 22/08/2026\nLivré à : Bersa, 14 RUE DE LA COLOMBETTE 31000 TOULOUSE\nFacture associée : FB-54406\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-02",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-17715\nDate de livraison : 02/09/2026\nLivré à : Bersa, 14 RUE DE LA COLOMBETTE 31000 TOULOUSE\nFacture associée : FB-44544\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-09-19",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-39477\nDate de livraison : 19/09/2026\nLivré à : Bersa, 14 RUE DE LA COLOMBETTE 31000 TOULOUSE\nFacture associée : FB-89432\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "843579079",
+   "truth_affected": false,
+   "truth_claim_deadline": null,
+   "truth_declare_cents": 0,
+   "debtor_siren": "890879505",
+   "split": "holdout"
+  },
+  {
+   "bench_case_id": "B003",
+   "family": "CONVERSION",
+   "crm_name": "Out Escape Game",
+   "crm_siren": "850149014",
+   "postal_code": "77340",
+   "city": "PONTAULT-COMBAULT",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-29056",
+     "invoice_date": "2026-07-14",
+     "due_date": "2026-08-13",
+     "amount_cents": 411000,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-80843",
+     "invoice_date": "2026-08-05",
+     "due_date": "2026-09-04",
+     "amount_cents": 924800,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-07-14",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-45703\nDate de livraison : 14/07/2026\nLivré à : Out Escape Game, 3 RUE SAINT CLAUDE 77340 PONTAULT-COMBAULT\nFacture associée : FB-29056\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-08-05",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-93206\nDate de livraison : 05/08/2026\nLivré à : Out Escape Game, 3 RUE SAINT CLAUDE 77340 PONTAULT-COMBAULT\nFacture associée : FB-80843\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "850149014",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-10-28",
+   "truth_declare_cents": 1335800,
+   "debtor_siren": "850149014",
+   "split": "holdout"
+  },
+  {
+   "bench_case_id": "B047",
+   "family": "EXACT_SIREN",
+   "crm_name": "Innovaction Group Sas",
+   "crm_siren": "819190539",
+   "postal_code": "11100",
+   "city": "NARBONNE",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-73976",
+     "invoice_date": "2026-08-22",
+     "due_date": "2026-09-21",
+     "amount_cents": 1366600,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-69841",
+     "invoice_date": "2026-09-07",
+     "due_date": "2026-10-07",
+     "amount_cents": 765800,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-22",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-86170\nDate de livraison : 22/08/2026\nLivré à : Innovaction Group Sas, PEPINIERE INNOVEUM - ZI LA COUPE 74 AVENUE PAUL SABATIER 11100 NARBONNE\nFacture associée : FB-73976\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-07",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-14286\nDate de livraison : 07/09/2026\nLivré à : Innovaction Group Sas, PEPINIERE INNOVEUM - ZI LA COUPE 74 AVENUE PAUL SABATIER 11100 NARBONNE\nFacture associée : FB-69841\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "819190539",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-20",
+   "truth_declare_cents": 2132400,
+   "debtor_siren": "819190539",
+   "split": "holdout"
+  },
+  {
+   "bench_case_id": "B039",
+   "family": "LATE_INVOICE",
+   "crm_name": "R.C.M",
+   "crm_siren": "840141402",
+   "postal_code": "78500",
+   "city": "SARTROUVILLE",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-59007",
+     "invoice_date": "2026-08-02",
+     "due_date": "2026-09-01",
+     "amount_cents": 800500,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-90456",
+     "invoice_date": "2026-08-18",
+     "due_date": "2026-09-17",
+     "amount_cents": 1236200,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-89523",
+     "invoice_date": "2026-09-09",
+     "due_date": "2026-10-09",
+     "amount_cents": 186600,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-02",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-75829\nDate de livraison : 02/08/2026\nLivré à : R.C.M, 35 AVENUE DE LA CONVENTION 78500 SARTROUVILLE\nFacture associée : FB-59007\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-08-18",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-87523\nDate de livraison : 18/08/2026\nLivré à : R.C.M, 35 AVENUE DE LA CONVENTION 78500 SARTROUVILLE\nFacture associée : FB-90456\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-08-30",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-89354\nDate de livraison : 30/08/2026\nLivré à : R.C.M, 35 AVENUE DE LA CONVENTION 78500 SARTROUVILLE\nFacturation regroupée ultérieurement.\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "840141402",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-13",
+   "truth_declare_cents": 2223300,
+   "debtor_siren": "840141402",
+   "split": "holdout"
+  },
+  {
+   "bench_case_id": "B022",
+   "family": "HOMONYM_HEALTHY",
+   "crm_name": "La Braise",
+   "crm_siren": null,
+   "postal_code": "94000",
+   "city": "CRETEIL",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-70530",
+     "invoice_date": "2026-08-13",
+     "due_date": "2026-09-12",
+     "amount_cents": 945700,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-93540",
+     "invoice_date": "2026-09-08",
+     "due_date": "2026-10-08",
+     "amount_cents": 678300,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-13",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-81179\nDate de livraison : 13/08/2026\nLivré à : La Braise, 11 RUE GEORGES ENESCO 94000 CRETEIL\nFacture associée : FB-70530\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-08",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-27599\nDate de livraison : 08/09/2026\nLivré à : La Braise, 11 RUE GEORGES ENESCO 94000 CRETEIL\nFacture associée : FB-93540\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "954045068",
+   "truth_affected": false,
+   "truth_claim_deadline": null,
+   "truth_declare_cents": 0,
+   "debtor_siren": "984970855",
+   "split": "holdout"
+  },
+  {
+   "bench_case_id": "B031",
+   "family": "ABBREV_TYPO",
+   "crm_name": "Myphysicalnutriion",
+   "crm_siren": null,
+   "postal_code": "65000",
+   "city": "TARBES",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-41247",
+     "invoice_date": "2026-07-25",
+     "due_date": "2026-08-24",
+     "amount_cents": 1285600,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-83115",
+     "invoice_date": "2026-08-31",
+     "due_date": "2026-09-30",
+     "amount_cents": 927100,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-07-25",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-43454\nDate de livraison : 25/07/2026\nLivré à : Myphysicalnutriion, 14 RUE MOLIERE 65000 TARBES\nFacture associée : FB-41247\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-08-31",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-18104\nDate de livraison : 31/08/2026\nLivré à : Myphysicalnutriion, 14 RUE MOLIERE 65000 TARBES\nFacture associée : FB-83115\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "920687712",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-23",
+   "truth_declare_cents": 2212700,
+   "debtor_siren": "920687712",
+   "split": "holdout"
+  },
+  {
+   "bench_case_id": "B038",
+   "family": "ABBREV_TYPO",
+   "crm_name": "Alu Tech R",
+   "crm_siren": null,
+   "postal_code": "69190",
+   "city": "SAINT-FONS",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-63500",
+     "invoice_date": "2026-08-14",
+     "due_date": "2026-09-13",
+     "amount_cents": 634600,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-99775",
+     "invoice_date": "2026-08-31",
+     "due_date": "2026-09-30",
+     "amount_cents": 2045700,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-39341",
+     "invoice_date": "2026-09-11",
+     "due_date": "2026-10-11",
+     "amount_cents": 2039400,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-14",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-46922\nDate de livraison : 14/08/2026\nLivré à : Alu Tech R, 30 RUE ROBERT ET REYNIER 69190 SAINT-FONS\nFacture associée : FB-63500\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-08-31",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-68700\nDate de livraison : 31/08/2026\nLivré à : Alu Tech R, 30 RUE ROBERT ET REYNIER 69190 SAINT-FONS\nFacture associée : FB-99775\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-09-10",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-56656\nDate de livraison : 10/09/2026\nLivré à : Alu Tech R, 30 RUE ROBERT ET REYNIER 69190 SAINT-FONS\nFacture associée : FB-39341\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "921711164",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-11-18",
+   "truth_declare_cents": 2680300,
+   "debtor_siren": "921711164",
+   "split": "holdout"
+  },
+  {
+   "bench_case_id": "B020",
+   "family": "STALE_SIREN",
+   "crm_name": "L'Hermine Lavage",
+   "crm_siren": "843829508",
+   "postal_code": "29250",
+   "city": "SAINT-POL-DE-LEON",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-28289",
+     "invoice_date": "2026-08-25",
+     "due_date": "2026-09-24",
+     "amount_cents": 1773200,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-99870",
+     "invoice_date": "2026-09-22",
+     "due_date": "2026-10-22",
+     "amount_cents": 2092900,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-25",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-42799\nDate de livraison : 25/08/2026\nLivré à : L'Hermine Lavage, RUE JEAN MONNET 29250 SAINT-POL-DE-LEON\nFacture associée : FB-28289\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-22",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-33129\nDate de livraison : 22/09/2026\nLivré à : L'Hermine Lavage, RUE JEAN MONNET 29250 SAINT-POL-DE-LEON\nFacture associée : FB-99870\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "829642859",
+   "truth_affected": true,
+   "truth_claim_deadline": "2026-12-16",
+   "truth_declare_cents": 3866100,
+   "debtor_siren": "829642859",
+   "split": "holdout"
+  },
+  {
+   "bench_case_id": "B024",
+   "family": "HOMONYM_HEALTHY",
+   "crm_name": "A Table !",
+   "crm_siren": null,
+   "postal_code": "67000",
+   "city": "STRASBOURG",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-18331",
+     "invoice_date": "2026-08-14",
+     "due_date": "2026-09-13",
+     "amount_cents": 226400,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-21144",
+     "invoice_date": "2026-09-17",
+     "due_date": "2026-10-17",
+     "amount_cents": 1585500,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-08-14",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-11212\nDate de livraison : 14/08/2026\nLivré à : A Table !, 15 RUE JACQUES PEIROTES 67000 STRASBOURG\nFacture associée : FB-18331\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-17",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-97377\nDate de livraison : 17/09/2026\nLivré à : A Table !, 15 RUE JACQUES PEIROTES 67000 STRASBOURG\nFacture associée : FB-21144\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "938622875",
+   "truth_affected": false,
+   "truth_claim_deadline": null,
+   "truth_declare_cents": 0,
+   "debtor_siren": "814105813",
+   "split": "holdout"
+  },
+  {
+   "bench_case_id": "B009",
+   "family": "HOMONYM_HEALTHY",
+   "crm_name": "Dsb",
+   "crm_siren": null,
+   "postal_code": "75016",
+   "city": "PARIS",
+   "contracts": [
+    {
+     "key": "k",
+     "kind": "FRAMEWORK_SUPPLY",
+     "signed_on": "2025-01-15",
+     "body": "Contrat-cadre d'approvisionnement : livraisons successives sur commandes, bon de livraison pour chaque livraison, facturation éventuellement regroupée, paiement à 30 jours."
+    }
+   ],
+   "invoices": [
+    {
+     "key": "i0",
+     "number": "FB-88190",
+     "invoice_date": "2026-09-01",
+     "due_date": "2026-10-01",
+     "amount_cents": 1540900,
+     "contract": "k"
+    },
+    {
+     "key": "i1",
+     "number": "FB-10756",
+     "invoice_date": "2026-09-10",
+     "due_date": "2026-10-10",
+     "amount_cents": 607100,
+     "contract": "k"
+    },
+    {
+     "key": "i2",
+     "number": "FB-15135",
+     "invoice_date": "2026-10-06",
+     "due_date": "2026-11-05",
+     "amount_cents": 2162300,
+     "contract": "k"
+    }
+   ],
+   "documents": [
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i0",
+     "doc_date": "2026-09-01",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-44344\nDate de livraison : 01/09/2026\nLivré à : Dsb, 23 BOULEVARD EXELMANS 75016 PARIS\nFacture associée : FB-88190\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i1",
+     "doc_date": "2026-09-10",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-78732\nDate de livraison : 10/09/2026\nLivré à : Dsb, 23 BOULEVARD EXELMANS 75016 PARIS\nFacture associée : FB-10756\nMarchandise reçue conforme. Signature du client : [signé]"
+    },
+    {
+     "kind": "DELIVERY_NOTE",
+     "invoice": "i2",
+     "doc_date": "2026-10-05",
+     "body": "MAISON VERDIER DISTRIBUTION · Bon de livraison BL-55758\nDate de livraison : 05/10/2026\nLivré à : Dsb, 23 BOULEVARD EXELMANS 75016 PARIS\nFacture associée : FB-15135\nMarchandise reçue conforme. Signature du client : [signé]"
+    }
+   ],
+   "truth_siren": "949878656",
+   "truth_affected": false,
+   "truth_claim_deadline": null,
+   "truth_declare_cents": 0,
+   "debtor_siren": "912936382",
+   "split": "holdout"
+  }
+ ]
+}

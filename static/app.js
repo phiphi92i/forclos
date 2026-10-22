@@ -15,6 +15,8 @@ const eur = (c, dec = false) => c == null ? "—" : "€" + (c / 100).toLocaleSt
 const day = (d) => new Date(String(d).slice(0, 10) + "T12:00:00");
 const fr = (d) => d ? day(d).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "—";
 const short = (d) => d ? day(d).toLocaleDateString("en-GB", { day: "numeric", month: "short" }) : "—";
+const ago = (t) => { const m = Math.round((Date.now() - new Date(t)) / 60000);
+  return m < 1 ? "just now" : m < 60 ? `${m} min ago` : m < 1440 ? `${Math.round(m / 60)} h ago` : `${Math.round(m / 1440)} d ago`; };
 const urg = (d) => d == null ? "" : d < 15 ? "urgent" : d < 30 ? "soon" : "";
 const title = (s) => /[a-z]/.test(s) ? s : s.toLowerCase().replace(/(^|[\s'(-])(\p{L})/gu, (m, a, b) => a + b.toUpperCase())
   .replace(/(\s)([DL])'/g, (m, a, b) => a + b.toLowerCase() + "'");
@@ -45,14 +47,15 @@ function parseRoute() {
   const h = location.hash.replace(/^#\/?/, "");
   const [page, id] = h.split("/");
   if (page === "case" && id) return { page: "case", id: +id };
-  return { page: ["customers", "feed", "benchmark"].includes(page) ? page : "overview" };
+  return { page: ["customers", "feed", "benchmark", "data", "import"].includes(page) ? page : "overview" };
 }
 async function render() {
   S.route = parseRoute();
   document.querySelectorAll("[data-nav]").forEach((a) =>
     a.classList.toggle("active", a.dataset.nav === (S.route.page === "case" ? "overview" : S.route.page)));
   $("sidebar").classList.remove("open");
-  const pages = { overview: renderOverview, case: renderCase, customers: renderCustomers, feed: renderFeed, benchmark: renderBenchmark };
+  const pages = { overview: renderOverview, case: renderCase, customers: renderCustomers, feed: renderFeed,
+                  benchmark: renderBenchmark, data: renderData, import: renderImport };
   try { await pages[S.route.page](); } catch (e) { $("view").innerHTML = `<p class="muted">Could not load: ${esc(e.message)}</p>`; }
 }
 window.addEventListener("hashchange", () => { window.scrollTo(0, 0); render(); });
@@ -81,7 +84,7 @@ async function renderOverview() {
       <td>${status(c.status)}</td></tr>`).join("");
   $("view").innerHTML = `
     <div class="page-heading">
-      <p class="eyebrow"><span class="dot"></span>Insolvency watch · ${fr(d.today)}</p>
+      <p class="eyebrow"><span class="dot"></span>Insolvency watch · ${fr(d.today)}${d.last_sync ? ` · BODACC synced ${ago(d.last_sync.finished_at)}, automatically every ${d.sync_every_minutes} min` : ""}</p>
       <h1>${d.customers_at_risk} customer${d.customers_at_risk === 1 ? "" : "s"} in insolvency proceedings.
         ${eur(d.declare_cents)} to declare.</h1>
       <p>Each claim (déclaration de créance) must reach the mandataire judiciaire within two months of the BODACC
@@ -511,6 +514,102 @@ async function renderBenchmark() {
   document.querySelectorAll("[data-split]").forEach((b) => b.onclick = () => { S.benchSplit = b.dataset.split; renderBenchmark(); });
 }
 
+// ---------------------------------------------------------------- data layer
+async function renderData() {
+  const d = await api("/api/data");
+  if (S.route.page !== "data") return;
+  const n = (x) => Number(x || 0).toLocaleString("en-GB");
+  const box = (eyebrow, title, lines) => `<div class="flow-box"><p class="eyebrow">${eyebrow}</p><h3>${title}</h3>
+    <div class="flow-lines">${lines.map((l) => `<div>${l}</div>`).join("")}</div></div>`;
+  $("view").innerHTML = `
+    <div class="page-heading"><p class="eyebrow"><span class="dot"></span>Aiven for PostgreSQL · ${esc(d.database.engine)} · ${esc(d.database.size)}</p>
+      <h1>Data layer</h1>
+      <p>Everything the agent knows lives in one Postgres database: public notices, register records, your ledger, and the
+        cases it builds up over time. Rules read it; the agent adds evidence to it; nothing is decided from a prompt alone.</p></div>
+    <div class="flow">
+      <div class="flow-col">
+        ${box("Source · live", "BODACC notices", [`<b class="num">${n(d.bodacc.rows)}</b> notices stored`, `${n(d.bodacc.procedure_notices)} openings and conversions`,
+          `latest publication ${fr(d.bodacc.latest_publication)}`, `synced every ${d.sync_every_minutes} min, upsert on notice id`])}
+        ${box("Source · cached 7 days", "Company register", [`<b class="num">${n(d.register.rows)}</b> lookups cached`, `${n(d.register.stale)} stale (refetched on use)`,
+          "stale copy used, and labelled, if the API is down"])}
+        ${box("Source · yours", "Receivables ledger", [`<b class="num">${n(d.ledger.customers)}</b> customers`, `${n(d.ledger.invoices)} invoices, ${n(d.ledger.documents)} documents`, "fictional in this demo"])}
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-col">
+        ${box("Memory", "Cases", [`<b class="num">${n(d.memory.cases)}</b> cases`, `${n(d.memory.case_events)} notices linked (never re-alerted)`,
+          `${n(d.memory.decisions)} decisions, append-only`, `${n(d.memory.agent_decisions)} by the agent, each with its evidence`])}
+        <div class="flow-split">
+          ${box("Code", "Legal rules", ["deadlines (art. 641, 642 CPC)", "pre / post opening", "amounts, claim split"])}
+          ${box("Agent", "Investigator", [`<b class="num">${n(d.agent.runs)}</b> runs, ${n(d.agent.steps)} steps`, `${n(d.agent.tokens)} tokens`,
+            `median ${d.agent.median_seconds ? Number(d.agent.median_seconds).toFixed(0) + " s" : "—"} per run`])}
+        </div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-col">${box("Output · for sign-off", "Actions", [`<b class="num">${n(d.memory.actions)}</b> prepared`, "claim drafts to the mandataire",
+          "cash terms for new deliveries", "revendication alerts", "lawyer review items"])}</div>
+    </div>
+    <div class="section-title"><h2>Sync log</h2><span class="muted">automatic and manual pulls from the BODACC</span></div>
+    <div class="scroll-x"><table class="table"><thead><tr><th>Finished</th><th>Trigger</th><th class="right">Fetched</th><th class="right">New</th>
+      <th class="right">Updated</th><th class="right">New cases</th><th class="right">Agent runs started</th></tr></thead>
+      <tbody>${d.syncs.map((r) => `<tr><td class="num">${r.finished_at ? new Date(r.finished_at).toLocaleString("en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }) : "running"}</td>
+        <td>${r.error ? `<span class="status red">error</span>` : `<span class="status ${r.trigger === "schedule" ? "green" : "gray"}">${esc(r.trigger)}</span>`}</td>
+        <td class="right num">${n(r.fetched)}</td><td class="right num">${n(r.inserted)}</td><td class="right num">${n(r.updated)}</td>
+        <td class="right num">${n(r.new_cases)}</td><td class="right num">${n(r.investigations)}</td></tr>`).join("")}</tbody></table></div>`;
+}
+
+// ---------------------------------------------------------------- import
+const SAMPLE_CSV = `customer;siren;postal_code;city;invoice_number;invoice_date;due_date;amount;paid
+Maison Vivier;;69500;Bron;FA-2026-1201;28/08/2026;27/09/2026;3120,40;0
+Maison Vivier;;69500;Bron;FA-2026-1240;04/09/2026;04/10/2026;1845,00;0
+Chimere;;42000;Saint-Etienne;FA-2026-1188;15/09/2026;15/10/2026;2210,00;0
+Brasserie Georges;;69002;Lyon;FA-2026-1207;02/09/2026;02/10/2026;4980,00;4980,00`;
+
+async function renderImport() {
+  $("view").innerHTML = `
+    <div class="page-heading"><p class="eyebrow"><span class="dot"></span>Onboarding · 2 minutes</p>
+      <h1>Import your receivables</h1>
+      <p>Export the aged receivables (balance âgée clients) from your accounting software as CSV. FORCLOS repairs the
+        customer identities, checks every one against the BODACC, and keeps watching every day after.</p></div>
+    <div class="two-col">
+      <section>
+        <label class="field" style="margin-top:0"><span>CSV, comma or semicolon separated. French headers work too (client, code postal, n° facture, échéance, montant, réglé).</span>
+          <textarea id="csv" rows="12" class="mono" style="font-size:.8rem"></textarea></label>
+        <div class="button-row" style="margin-top:14px">
+          <button class="button primary" id="btn-import">Import and check</button>
+          <label class="button soft" style="cursor:pointer">Choose a file<input type="file" id="csv-file" accept=".csv,text/csv" hidden></label>
+          <button class="button" id="btn-sample">Use the sample</button>
+        </div>
+        <div id="import-result"></div>
+      </section>
+      <aside class="soft">
+        <h3 style="font-size:1.125rem">What happens</h3>
+        <ol class="steps">
+          <li><b>Rules first.</b> A SIREN in the file is matched exactly against every BODACC notice stored.</li>
+          <li><b>Register check.</b> A SIREN the register reports as ceased or unknown is not trusted.</li>
+          <li><b>Agent repair.</b> Customers with no usable SIREN go to the agent: name, postal code, trade names, active status.</li>
+          <li><b>Cases.</b> Every match opens a case: deadline, claim, protective actions, for your sign-off.</li>
+          <li><b>Every day after.</b> The BODACC is synced every ${S.dash?.sync_every_minutes || 30} min; new notices trigger the agent.</li>
+        </ol>
+        <p class="muted" style="font-size:.8rem;margin-top:12px">Columns: customer, siren (optional), postal_code, city, invoice_number, invoice_date, due_date, amount, paid.</p>
+      </aside>
+    </div>`;
+  $("btn-sample").onclick = () => { $("csv").value = SAMPLE_CSV; };
+  $("csv-file").onchange = async (e) => { const f = e.target.files[0]; if (f) $("csv").value = await f.text(); };
+  $("btn-import").onclick = async () => {
+    const b = $("btn-import"); b.disabled = true; b.textContent = "Importing…";
+    try {
+      const r = await post("/api/import", { csv: $("csv").value });
+      $("import-result").innerHTML = `<div class="callout note" style="background:var(--green-soft);color:var(--ink)">
+        <span><b>${r.customers_created} customers, ${r.invoices_created} invoices imported.</b>
+        ${r.cases_opened} case${r.cases_opened === 1 ? "" : "s"} opened by exact SIREN · ${r.identity_checks_queued} identity check${r.identity_checks_queued === 1 ? "" : "s"} queued for the agent.</span>
+        <a class="button small primary" href="#/customers">Follow on Customers</a></div>
+        ${r.errors.length ? `<div class="callout note"><span>${r.errors.map(esc).join("<br>")}</span></div>` : ""}`;
+      loadDash();
+    } catch (e) { $("import-result").innerHTML = `<div class="callout danger"><span>${esc(e.message)}</span></div>`; }
+    b.disabled = false; b.textContent = "Import and check";
+  };
+}
+
 // ---------------------------------------------------------------- global wiring
 $("btn-reset").onclick = async () => {
   if (!confirm("Restore the frozen demo seed? Agent runs and decisions are cleared.")) return;
@@ -523,5 +622,6 @@ $("btn-menu").onclick = () => $("sidebar").classList.toggle("open");
 setInterval(() => {
   if (S.trail.status === "RUNNING" || document.hidden) return;
   if (S.route.page === "overview") renderOverview().catch(() => {});
-}, 15000);
+  if (S.route.page === "customers") renderCustomers(false).catch(() => {});
+}, 10000);
 render();

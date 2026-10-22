@@ -52,4 +52,4 @@ def load_seed(path: Path = SEED) -> dict:
                          (key, Jsonb(payload)))
         ids = [insert_customer(conn, c) for c in seed["customers"]]
         new_cases = match_customers(conn)
-    return {"customers": len(ids), "notices": len(seed.get("notices", [])), "cases": new_cases}
+    return {"customers": len(ids), "notices": len(seed.get("notices", [])), "cases": len(new_cases)}

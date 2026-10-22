@@ -7,7 +7,7 @@ from fastapi import APIRouter, HTTPException
 from fastapi.responses import PlainTextResponse
 from pydantic import BaseModel, Field
 
-from app import db, runs
+from app import db, importer, runs
 from app.baseline import naive_deadline
 from app.cases import to_legal_notice, today
 
@@ -226,3 +226,15 @@ Pièces justificatives : factures et bons de livraison référencés ci-dessus.
 
 Préparé par FORCLOS. Données BODACC publiques, grand livre fictif de démonstration.
 """
+
+
+class ImportIn(BaseModel):
+    csv: str = Field(..., min_length=20, max_length=500_000)
+
+
+@router.post("/import")
+def import_receivables(body: ImportIn) -> dict:
+    try:
+        return importer.import_csv(body.csv)
+    except importer.ImportError_ as e:
+        raise HTTPException(400, str(e)) from e

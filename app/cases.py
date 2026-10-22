@@ -113,16 +113,18 @@ def open_case(conn, customer_id: int, siren: str) -> tuple[int, bool]:
     return row["id"], row["created"]
 
 
-def match_customers(conn, dataset: str = "demo") -> int:
-    """RULE matching: exact SIREN (verified if any, else as typed in the CRM) against case notices."""
+def match_customers(conn, dataset: str = "demo") -> list[int]:
+    """RULE matching: exact SIREN (verified if any, else as typed in the CRM) against case notices.
+    Returns the ids of the cases created by this call."""
     rows = conn.execute(
         """select c.id, coalesce(c.verified_siren, c.crm_siren) as siren from customers c
            where c.dataset = %s and coalesce(c.verified_siren, c.crm_siren) is not null
              and c.identity_status <> 'NOT_FOUND'
              and exists (select 1 from bodacc_notices n where n.siren = coalesce(c.verified_siren, c.crm_siren)
                          and n.event_kind = any(%s))""", (dataset, list(CASE_KINDS))).fetchall()
-    created = 0
+    created = []
     for r in rows:
-        _, is_new = open_case(conn, r["id"], r["siren"])
-        created += int(is_new)
+        case_id, is_new = open_case(conn, r["id"], r["siren"])
+        if is_new:
+            created.append(case_id)
     return created
